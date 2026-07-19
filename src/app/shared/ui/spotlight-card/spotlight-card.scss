@@ -1,0 +1,52 @@
+:host {
+
+    display: block;
+
+    --x: 50%;
+    --y: 50%;
+
+}
+
+.card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: var(--radius-lg);
+
+    background: var(--surface-alt);
+
+    border: 1px solid var(--border);
+
+    padding: 2rem;
+
+    transition: .35s ease;
+
+}
+
+.card:hover {
+
+    transform:
+        translateY(-6px);
+
+}
+
+.spotlight {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle 240px at var(--x) var(--y),
+            rgba(92,108,255,.22),
+            transparent 70%
+        );
+
+    transition: background .08s linear;
+
+}

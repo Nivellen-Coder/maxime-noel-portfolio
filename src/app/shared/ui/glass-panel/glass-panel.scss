@@ -1,0 +1,20 @@
+.glass{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:var(--radius-xl);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.10),
+            rgba(255,255,255,.03)
+        );
+
+}

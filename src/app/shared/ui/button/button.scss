@@ -1,0 +1,51 @@
+:host{
+
+    display:inline-flex;
+
+}
+
+button{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:16px 28px;
+
+    border-radius:999px;
+
+    transition:.35s;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+:host(.primary) button{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:white;
+
+}
+
+button:hover{
+
+    transform:
+
+        translateY(-3px);
+
+}
+
+button:hover{
+
+    box-shadow:
+
+        0 18px 45px rgba(92,108,255,.35);
+
+}

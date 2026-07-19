@@ -1,0 +1,33 @@
+:root {
+
+  /* ========= Primary ========= */
+
+  --primary: #5C6CFF;
+  --primary-hover: #7280ff;
+
+  /* ========= Accent ========= */
+
+  --secondary: #8B5CF6;
+  --accent: #22D3EE;
+
+  /* ========= Background ========= */
+
+  --background: #070B14;
+  --surface: #0F172A;
+  --surface-alt: #151C2F;
+
+  /* ========= Typography ========= */
+
+  --text: #F8FAFC;
+  --text-muted: #94A3B8;
+
+  /* ========= Border ========= */
+
+  --border: rgba(255,255,255,.08);
+
+  /* ========= Status ========= */
+
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+}
