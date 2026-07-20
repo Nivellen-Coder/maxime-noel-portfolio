@@ -1,0 +1,415 @@
+:host{
+
+  display: block;
+
+  position: relative;
+
+  isolation: isolate;
+
+  overflow: hidden;
+
+  min-height: 100vh;
+
+  background: var(--nds-color-background);
+
+  --aurora-grid-size: 64px;
+
+  --aurora-grid-opacity: .045;
+
+  --aurora-noise-opacity: .03;
+
+  --aurora-orb-opacity: .55;
+
+  --aurora-transition: 400ms;
+
+}
+
+.aurora{
+
+    background: var(--aurora-primary);
+
+    position:relative;
+
+    overflow:hidden;
+
+    isolation:isolate;
+
+}
+
+.orb{
+
+    position:absolute;
+
+    width:38rem;
+
+    height:38rem;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:.28;
+
+    animation:
+
+    float 18s ease-in-out infinite;
+
+}
+
+.orb-1{
+
+    background:#5C6CFF;
+
+    top:-12rem;
+
+    left:-10rem;
+
+}
+
+.orb-2{
+
+    background:#8B5CF6;
+
+    top:10rem;
+
+    right:-10rem;
+
+}
+
+.orb-3{
+
+    background:#22D3EE;
+
+    bottom:-15rem;
+
+    left:30%;
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:
+            translate3d(0,0,0)
+            scale(1);
+
+    }
+
+    50%{
+
+        transform:
+            translate3d(30px,-40px,0)
+            scale(1.15);
+
+    }
+
+    100%{
+
+        transform:
+            translate3d(0,0,0)
+            scale(1);
+
+    }
+
+}
+
+.nds-aurora {
+
+  position:relative;
+
+  display:block;
+
+  overflow:hidden;
+
+  isolation:isolate;
+
+  min-height:100vh;
+
+  background:var(--nds-color-background);
+
+  --aurora-blur:180px;
+
+  --aurora-opacity:.65;
+
+  --grid-size:64px;
+
+  --noise-opacity:.035;
+
+  -webkit-mask-image:
+
+  radial-gradient(
+
+  ellipse at center,
+
+  black 35%,
+
+  transparent 95%
+
+  );
+
+  mask-image:
+
+  radial-gradient(
+
+  ellipse at center,
+
+  black 35%,
+
+  transparent 95%
+
+  );
+
+}
+
+.nds-aurora__background {
+
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+}
+
+.nds-aurora__content {
+
+  position: relative;
+
+  z-index: 2;
+
+}
+
+.nds-aurora__grid {
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+
+      linear-gradient(
+          rgba(255,255,255,var(--aurora-grid-opacity)) 1px,
+          transparent 1px
+      ),
+
+      linear-gradient(
+          90deg,
+          rgba(255,255,255,var(--aurora-grid-opacity)) 1px,
+          transparent 1px
+      ),
+
+      linear-gradient(
+
+      transparent,
+
+      rgba(255,255,255,.03),
+
+      transparent);
+
+  background-size:
+
+      var(--aurora-grid-size)
+
+      var(--aurora-grid-size);
+
+}
+
+.nds-aurora__noise {
+
+  position:absolute;
+
+  inset:0;
+
+  opacity:var(--aurora-noise-opacity);
+
+}
+
+.nds-aurora__noise::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+.nds-aurora__gradient {
+
+    position:absolute;
+
+    inset:0;
+
+    filter:blur(var(--aurora-blur));
+
+}
+
+.nds-aurora__orb{
+
+    position:absolute;
+
+    width:var(--orb-size);
+
+    aspect-ratio:1;
+
+    left:var(--orb-left);
+
+    top:var(--orb-top);
+
+    opacity:var(--aurora-orb-opacity);
+
+    pointer-events:none;
+
+    will-change:transform;
+
+    animation:
+
+        nds-aurora-float
+
+        var(--orb-duration)
+
+        ease-in-out
+
+        infinite;
+
+    animation-delay:
+
+        var(--orb-delay);
+
+}
+
+.nds-aurora__orb::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:62% 38% 45% 55% /
+                  52% 48% 60% 40%;
+
+    background:
+
+        radial-gradient(
+
+            circle at 35% 35%,
+
+            rgba(255,255,255,.9),
+
+            var(--orb-color) 35%,
+
+            transparent 80%
+
+        );
+
+    filter:
+
+        blur(90px);
+
+}
+
+.nds-aurora__orb::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:25%;
+
+    border-radius:inherit;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(255,255,255,.9),
+
+            transparent
+
+        );
+
+    filter:
+
+        blur(35px);
+
+    opacity:.5;
+
+}
+
+@keyframes nds-aurora-float{
+
+    0%{
+
+    transform:
+
+    translate3d(0,0,0)
+
+    scale(1)
+
+    rotate(0deg);
+
+  }
+
+  50%{
+
+    transform:
+
+    translate3d(60px,-45px,0)
+
+    scale(1.12)
+
+    rotate(180deg);
+
+  }
+
+  100%{
+
+    transform:
+
+    translate3d(0,0,0)
+
+    scale(1)
+
+    rotate(360deg);
+
+  }
+
+}
+
+@media (prefers-reduced-motion:reduce){
+
+    .nds-aurora__orb{
+
+        animation:none;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+  :host{
+
+  --aurora-grid-size:48px;
+
+  }
+
+}
+
+@media (max-width:480px){
+
+  :host{
+
+  --aurora-grid-size:36px;
+
+  }
+
+}
+

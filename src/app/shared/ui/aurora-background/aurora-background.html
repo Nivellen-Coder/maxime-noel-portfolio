@@ -1,0 +1,35 @@
+<div class="nds-aurora__background" aria-hidden="true">
+
+  @if (grid()) {
+    <div class="nds-aurora__grid"></div>
+  }
+
+  @if (noise()) {
+    <div class="nds-aurora__noise"></div>
+  }
+
+  <div class="nds-aurora__gradient">
+
+    @for (orb of orbs(); track orb.id) {
+
+      <div
+        class="nds-aurora__orb"
+        [style.--orb-size]="orb.size"
+        [style.--orb-color]="orb.color"
+        [style.--orb-top]="orb.top"
+        [style.--orb-left]="orb.left"
+        [style.--orb-duration.s]="orb.duration"
+        [style.--orb-delay.s]="orb.delay">
+      </div>
+
+    }
+
+  </div>
+
+</div>
+
+<div class="nds-aurora__content">
+
+  <ng-content />
+
+</div>
