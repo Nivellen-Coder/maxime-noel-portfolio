@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { PageLayoutComponent } from './core/layout/page-layout/page-layout'
-import { HomeComponent } from './features/home/pages/home/home';
+import { Home } from './features/home/pages/home/home';
 
 export const routes: Routes = [
     {
@@ -10,7 +10,7 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
-                component: HomeComponent
+                component: Home
             }
         ]
     }
