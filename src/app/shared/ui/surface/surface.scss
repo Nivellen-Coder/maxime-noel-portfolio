@@ -1,0 +1,209 @@
+/* ==========================================================================
+   Nova Design System
+   Surface Component
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+ * Host
+ * -------------------------------------------------------------------------- */
+
+:host {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  transition:
+    background-color var(--nds-duration-normal) var(--nds-ease-standard),
+    border-color var(--nds-duration-normal) var(--nds-ease-standard),
+    box-shadow var(--nds-duration-normal) var(--nds-ease-standard),
+    transform var(--nds-duration-normal) var(--nds-ease-standard);
+
+  border-radius: var(--nds-radius-xl);
+}
+
+/* --------------------------------------------------------------------------
+ * Variants
+ * -------------------------------------------------------------------------- */
+
+:host([data-variant='glass']) {
+  background: var(--nds-surface-glass-bg);
+
+  border: 1px solid var(--nds-surface-border);
+
+  backdrop-filter: blur(var(--nds-blur-xl));
+  -webkit-backdrop-filter: blur(var(--nds-blur-xl));
+
+  box-shadow: var(--nds-shadow-xl);
+}
+
+:host([data-variant='solid']) {
+  background: var(--nds-surface-solid-bg);
+
+  border: 1px solid transparent;
+}
+
+:host([data-variant='outlined']) {
+  background: transparent;
+
+  border: 1px solid var(--nds-surface-border);
+}
+
+:host([data-variant='ghost']) {
+  background: transparent;
+
+  border: none;
+
+  backdrop-filter: none;
+}
+
+/* --------------------------------------------------------------------------
+ * Radius
+ * -------------------------------------------------------------------------- */
+
+:host([data-radius='none']) {
+  border-radius: var(--nds-radius-none);
+}
+
+:host([data-radius='xs']) {
+  border-radius: var(--nds-radius-xs);
+}
+
+:host([data-radius='sm']) {
+  border-radius: var(--nds-radius-sm);
+}
+
+:host([data-radius='md']) {
+  border-radius: var(--nds-radius-md);
+}
+
+:host([data-radius='lg']) {
+  border-radius: var(--nds-radius-lg);
+}
+
+:host([data-radius='xl']) {
+  border-radius: var(--nds-radius-xl);
+}
+
+:host([data-radius='full']) {
+  border-radius: var(--nds-radius-full);
+}
+
+/* --------------------------------------------------------------------------
+ * Padding
+ * -------------------------------------------------------------------------- */
+
+:host([data-padding='none']) {
+  padding: 0;
+}
+
+:host([data-padding='xs']) {
+  padding: var(--nds-space-2);
+}
+
+:host([data-padding='sm']) {
+  padding: var(--nds-space-4);
+}
+
+:host([data-padding='md']) {
+  padding: var(--nds-space-6);
+}
+
+:host([data-padding='lg']) {
+  padding: var(--nds-space-8);
+}
+
+:host([data-padding='xl']) {
+  padding: var(--nds-space-12);
+}
+
+/* --------------------------------------------------------------------------
+ * Border
+ * -------------------------------------------------------------------------- */
+
+:host::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12),
+    transparent 40%
+  );
+
+  opacity: .8;
+}
+
+/* --------------------------------------------------------------------------
+ * Glow
+ * -------------------------------------------------------------------------- */
+
+:host::after {
+  content: '';
+
+  position: absolute;
+  inset: -40%;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  border-radius: inherit;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 92, 255, .18),
+      transparent 70%
+    );
+
+  transition:
+    opacity var(--nds-duration-normal)
+    var(--nds-ease-standard);
+}
+
+:host(.nds-surface--glow)::after {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+ * Interactive
+ * -------------------------------------------------------------------------- */
+
+:host(.nds-surface--interactive) {
+  cursor: pointer;
+}
+
+:host(.nds-surface--interactive:hover) {
+  transform: translateY(-4px);
+
+  box-shadow: var(--nds-shadow-2xl);
+}
+
+/* --------------------------------------------------------------------------
+ * Focus Visible
+ * -------------------------------------------------------------------------- */
+
+:host(.nds-surface--interactive:focus-visible) {
+  outline: 2px solid var(--nds-color-primary-600);
+
+  outline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+ * Accessibility
+ * -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  :host {
+    transition: none;
+  }
+
+}
