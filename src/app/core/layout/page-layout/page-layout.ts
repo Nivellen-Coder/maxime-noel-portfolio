@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../footer/footer.component';
+import { Navbar } from '../navbar/navbar';
+import { Footer } from '../footer/footer';
 
 @Component({
     selector: 'app-page-layout',
     standalone: true,
     imports: [
         RouterOutlet,
-        NavbarComponent,
-        FooterComponent
+        Navbar,
+        Footer
     ],
-    templateUrl: './page-layout.component.html',
-    styleUrl: './page-layout.component.scss'
+    templateUrl: './page-layout.html',
+    styleUrl: './page-layout.scss'
 })
 export class PageLayoutComponent {}

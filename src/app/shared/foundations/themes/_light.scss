@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Nova Design System
+   Light Theme
+   ========================================================================== */
+
+[data-theme='light'] {
+
+  color-scheme: light;
+
+  --nds-background:
+      var(--nds-color-neutral-50);
+
+  --nds-background-elevated:
+      var(--nds-color-neutral-0);
+
+  --nds-surface-solid-bg:
+      var(--nds-color-neutral-0);
+
+  --nds-surface-glass-bg:
+      rgba(255,255,255,.72);
+
+  --nds-surface-border:
+      rgba(15,23,42,.08);
+
+  --nds-text-primary:
+      var(--nds-color-neutral-900);
+
+  --nds-text-secondary:
+      var(--nds-color-neutral-700);
+
+  --nds-text-muted:
+      var(--nds-color-neutral-500);
+
+  --nds-border-subtle:
+      rgba(15,23,42,.08);
+
+  --nds-border-strong:
+      rgba(15,23,42,.16);
+
+}

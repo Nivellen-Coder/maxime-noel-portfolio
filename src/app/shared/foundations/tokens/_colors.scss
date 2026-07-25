@@ -1,0 +1,87 @@
+:root {
+
+    /* Background */
+
+    --nds-color-background: #090B12;
+
+    --nds-color-surface: #101522;
+
+    --nds-color-surface-hover: #161D2D;
+
+    /* Text */
+
+    --nds-color-text:#F5F7FA;
+
+    --nds-color-text-muted:#B7C0D8;
+
+    --nds-color-text-subtle:#7B87A4;
+
+    /* ------------------------------------------------------------------------
+    * Brand
+    * --------------------------------------------------------------------- */
+
+  --nds-color-primary-50:  #f5f3ff;
+  --nds-color-primary-100: #ede9fe;
+  --nds-color-primary-200: #ddd6fe;
+  --nds-color-primary-300: #c4b5fd;
+  --nds-color-primary-400: #a78bfa;
+  --nds-color-primary-500: #8b5cf6;
+  --nds-color-primary-600: #7c5cff;
+  --nds-color-primary-700: #6d28d9;
+  --nds-color-primary-800: #5b21b6;
+  --nds-color-primary-900: #4c1d95;
+
+  /* ------------------------------------------------------------------------
+   * Cyan
+   * --------------------------------------------------------------------- */
+
+  --nds-color-cyan-50:  #ecfeff;
+  --nds-color-cyan-100: #cffafe;
+  --nds-color-cyan-200: #a5f3fc;
+  --nds-color-cyan-300: #67e8f9;
+  --nds-color-cyan-400: #22d3ee;
+  --nds-color-cyan-500: #06b6d4;
+  --nds-color-cyan-600: #4fd9ff;
+  --nds-color-cyan-700: #0e7490;
+  --nds-color-cyan-800: #155e75;
+  --nds-color-cyan-900: #164e63;
+
+  /* ------------------------------------------------------------------------
+   * Neutral
+   * --------------------------------------------------------------------- */
+
+  --nds-color-neutral-0:   #ffffff;
+  --nds-color-neutral-50:  #f8fafc;
+  --nds-color-neutral-100: #f1f5f9;
+  --nds-color-neutral-200: #e2e8f0;
+  --nds-color-neutral-300: #cbd5e1;
+  --nds-color-neutral-400: #94a3b8;
+  --nds-color-neutral-500: #64748b;
+  --nds-color-neutral-600: #475569;
+  --nds-color-neutral-700: #334155;
+  --nds-color-neutral-800: #1e293b;
+  --nds-color-neutral-900: #0f172a;
+  --nds-color-neutral-950: #020617;
+
+  /* ------------------------------------------------------------------------
+   * Semantic
+   * --------------------------------------------------------------------- */
+
+  --nds-color-success: #22c55e;
+  --nds-color-warning: #f59e0b;
+  --nds-color-danger:  #ef4444;
+  --nds-color-info:    #3b82f6;
+
+    --nds-surface-glass-bg:
+
+  rgba(15,18,34,.55);
+
+    --nds-surface-solid-bg:
+
+  #121826;
+
+    --nds-surface-border:
+
+  rgba(255,255,255,.08);
+
+}
