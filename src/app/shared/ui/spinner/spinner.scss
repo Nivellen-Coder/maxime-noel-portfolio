@@ -1,0 +1,106 @@
+/* ==========================================================================
+   Nova Design System
+   Spinner Component
+   ========================================================================== */
+
+:host {
+  --nds-spinner-size: 1.5rem;
+  --nds-spinner-border-width: 2px;
+  --nds-spinner-color: currentColor;
+  --nds-spinner-track-color: color-mix(
+    in srgb,
+    currentColor 18%,
+    transparent
+  );
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   Circle
+   ========================================================================== */
+
+.nds-spinner__circle {
+  width: var(--nds-spinner-size);
+  height: var(--nds-spinner-size);
+
+  border-radius: 50%;
+
+  border-style: solid;
+  border-width: var(--nds-spinner-border-width);
+
+  border-color:
+    var(--nds-spinner-color)
+    var(--nds-spinner-track-color)
+    var(--nds-spinner-track-color)
+    var(--nds-spinner-track-color);
+
+  animation: nds-spinner-rotate .75s linear infinite;
+
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Sizes
+   ========================================================================== */
+
+:host([data-size="xs"]) {
+  --nds-spinner-size: .75rem;
+  --nds-spinner-border-width: 2px;
+}
+
+:host([data-size="sm"]) {
+  --nds-spinner-size: 1rem;
+  --nds-spinner-border-width: 2px;
+}
+
+:host([data-size="md"]) {
+  --nds-spinner-size: 1.5rem;
+  --nds-spinner-border-width: 2px;
+}
+
+:host([data-size="lg"]) {
+  --nds-spinner-size: 2rem;
+  --nds-spinner-border-width: 3px;
+}
+
+:host([data-size="xl"]) {
+  --nds-spinner-size: 3rem;
+  --nds-spinner-border-width: 4px;
+}
+
+/* ==========================================================================
+   Variants
+   ========================================================================== */
+
+:host([data-variant="inherit"]) {
+  --nds-spinner-color: currentColor;
+}
+
+:host([data-variant="primary"]) {
+  --nds-spinner-color: var(--nds-color-primary);
+}
+
+:host([data-variant="neutral"]) {
+  --nds-spinner-color: var(--nds-color-neutral-700);
+}
+
+/* ==========================================================================
+   Motion
+   ========================================================================== */
+
+@keyframes nds-spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nds-spinner__circle {
+    animation-duration: 2s;
+  }
+}
