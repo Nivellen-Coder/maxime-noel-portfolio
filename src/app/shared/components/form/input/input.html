@@ -1,0 +1,21 @@
+<div class="nds-input__wrapper">
+
+  <ng-content select="[ndsPrefix]"></ng-content>
+
+  <input
+    class="nds-input__native"
+    ndsFieldControl
+    [id]="controlId()"
+    [type]="type()"
+    [value]="value()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [readOnly]="readonly()"
+    [required]="required()"
+    [attr.aria-labelledby]="labelId()"
+    [attr.aria-describedby]="describedBy()"
+    (input)="onInput($event)" />
+
+  <ng-content select="[ndsSuffix]"></ng-content>
+
+</div>

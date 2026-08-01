@@ -1,0 +1,30 @@
+@use '../../foundations/mixins' as mixins;
+
+.nds-input__wrapper {
+
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  gap: .5rem;
+
+  padding-inline: .75rem;
+
+  min-height: 2.75rem;
+
+  border: 1px solid var(--nds-color-border);
+
+  border-radius: var(--nds-radius-md);
+
+  background: var(--nds-color-surface);
+
+  transition:
+    border-color .2s,
+    box-shadow .2s,
+    background .2s;
+
+  @include mixins.focus-ring(".nds-input__native");
+
+}
