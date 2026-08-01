@@ -1,0 +1,69 @@
+@switch (as()) {
+
+  @case ('h1') {
+    <h1 class="nds-text__content">
+      <ng-content />
+    </h1>
+  }
+
+  @case ('h2') {
+    <h2 class="nds-text__content">
+      <ng-content />
+    </h2>
+  }
+
+  @case ('h3') {
+    <h3 class="nds-text__content">
+      <ng-content />
+    </h3>
+  }
+
+  @case ('h4') {
+    <h4 class="nds-text__content">
+      <ng-content />
+    </h4>
+  }
+
+  @case ('h5') {
+    <h5 class="nds-text__content">
+      <ng-content />
+    </h5>
+  }
+
+  @case ('h6') {
+    <h6 class="nds-text__content">
+      <ng-content />
+    </h6>
+  }
+
+  @case ('p') {
+    <p class="nds-text__content">
+      <ng-content />
+    </p>
+  }
+
+  @case ('label') {
+    <label class="nds-text__content">
+      <ng-content />
+    </label>
+  }
+
+  @case ('strong') {
+    <strong class="nds-text__content">
+      <ng-content />
+    </strong>
+  }
+
+  @case ('small') {
+    <small class="nds-text__content">
+      <ng-content />
+    </small>
+  }
+
+  @default {
+    <span class="nds-text__content">
+      <ng-content />
+    </span>
+  }
+
+}
