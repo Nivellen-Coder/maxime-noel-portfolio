@@ -1,0 +1,39 @@
+:host {
+  display: inline-flex;
+
+  width: 1em;
+  height: 1em;
+
+  color: inherit;
+
+  flex-shrink: 0;
+}
+
+.nds-icon__svg {
+
+  width: 100%;
+  height: 100%;
+
+}
+
+/* Sizes */
+
+:host([data-size="xs"]) {
+  font-size: .75rem;
+}
+
+:host([data-size="sm"]) {
+  font-size: .875rem;
+}
+
+:host([data-size="md"]) {
+  font-size: 1rem;
+}
+
+:host([data-size="lg"]) {
+  font-size: 1.25rem;
+}
+
+:host([data-size="xl"]) {
+  font-size: 1.5rem;
+}
