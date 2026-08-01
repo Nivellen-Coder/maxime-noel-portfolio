@@ -1,0 +1,28 @@
+/**
+ * -----------------------------------------------------------------------------
+ * Nova Design System
+ * Field Component
+ * -----------------------------------------------------------------------------
+ */
+
+:host {
+
+  display: block;
+
+  width: 100%;
+
+  --nds-field-gap: .375rem;
+
+}
+
+.nds-field__container {
+
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+
+  gap: var(--nds-field-gap);
+
+}
