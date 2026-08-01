@@ -1,0 +1,48 @@
+:host {
+  display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Label */
+/* -------------------------------------------------------------------------- */
+
+.nds-label__content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nds-spacing-2);
+
+  margin: 0;
+  padding: 0;
+
+  color: inherit;
+
+  font-size: var(--nds-font-size-label-md);
+  font-weight: var(--nds-font-weight-medium);
+  line-height: var(--nds-line-height-label-md);
+  letter-spacing: var(--nds-letter-spacing-label-md);
+
+  cursor: pointer;
+
+  user-select: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Required indicator */
+/* -------------------------------------------------------------------------- */
+
+.nds-label__required {
+  color: var(--nds-color-danger);
+
+  font: inherit;
+
+  line-height: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Disabled */
+/* -------------------------------------------------------------------------- */
+
+:host([data-disabled="true"]) .nds-label__content {
+  cursor: default;
+  opacity: .6;
+}

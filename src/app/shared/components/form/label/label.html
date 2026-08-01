@@ -1,0 +1,19 @@
+<label
+  class="nds-label__content"
+  [attr.for]="controlId()">
+
+  <ng-content />
+
+  @if (required()) {
+
+    <span
+      class="nds-label__required"
+      aria-hidden="true">
+
+      *
+
+    </span>
+
+  }
+
+</label>
