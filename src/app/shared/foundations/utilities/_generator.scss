@@ -1,0 +1,51 @@
+/* ==========================================================================
+   Nova Design System
+   Foundation Utilities
+   Generator
+   ========================================================================== */
+
+@use "sass:map";
+
+/// Generates utility classes from a Sass map.
+///
+/// @param {String} $class-prefix
+///   Prefix of the generated utility class.
+///
+/// @param {String} $css-variable
+///   CSS custom property that will receive the value.
+///
+/// @param {Map} $values
+///   Map of key/value pairs.
+///
+/// Example:
+///
+/// $radius: (
+///   sm: var(--nds-radius-sm),
+///   md: var(--nds-radius-md)
+/// );
+///
+/// @include generate-utilities(
+///   "nds-radius",
+///   "--nds-component-radius",
+///   $radius
+/// );
+///
+@mixin generate-utilities(
+  $class-prefix,
+  $css-variable,
+  $values
+) {
+
+  @if type-of($values) != "map" {
+    @error "$values must be a Sass map.";
+  }
+
+  @each $key, $value in $values {
+
+    .#{$class-prefix}-#{$key} {
+      #{$css-variable}: #{$value};
+    }
+
+  }
+
+}

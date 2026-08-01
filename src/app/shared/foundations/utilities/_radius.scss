@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Nova Design System
+   Foundation Utilities
+   Radius
+   ========================================================================== */
+
+@use '../tokens/radius';
+@use './generator';
+
+@include generator.generate-utilities(
+  'nds-radius',
+  '--nds-component-radius',
+  radius.$nds-radius-scale
+);
+
+$nds-radius-scale: (
+  none: var(--nds-radius-none),
+  xs: var(--nds-radius-xs),
+  sm: var(--nds-radius-sm),
+  md: var(--nds-radius-md),
+  lg: var(--nds-radius-lg),
+  xl: var(--nds-radius-xl),
+  full: var(--nds-radius-full)
+);
