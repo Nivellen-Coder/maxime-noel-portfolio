@@ -1,10 +1,10 @@
 import {
+  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
-  ViewEncapsulation,
-  booleanAttribute,
   computed,
-  input
+  input,
+  ViewEncapsulation
 } from '@angular/core';
 
 import {
@@ -13,31 +13,34 @@ import {
   ButtonVariant
 } from './button.types';
 
+import { ButtonPrefixDirective } from './button-prefix.directive';
+import { ButtonSuffixDirective } from './button-suffix.directive';
+
+import { Spinner } from '../spinner/spinner';
+
 @Component({
   selector: 'nds-button',
   standalone: true,
   templateUrl: './button.html',
   styleUrl: './button.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    Spinner
+  ],
   host: {
-    'class': 'nds-button',
+  'class': 'nds-button',
 
-    '[attr.data-variant]': 'variant()',
-    '[attr.data-color]': 'color()',
-    '[attr.data-size]': 'size()',
+  '[attr.data-variant]': 'variant()',
+  '[attr.data-color]': 'color()',
+  '[attr.data-size]': 'size()',
 
-    '[class.nds-button--loading]': 'loading()',
-    '[class.nds-button--full-width]': 'fullWidth()',
-
-    '[attr.aria-busy]': 'loading()',
-    '[attr.aria-disabled]': 'disabledState()',
-
-    '[attr.disabled]': 'disabledState() ? "" : null'
+  '[attr.data-loading]': 'loading() ? "" : null',
+  '[attr.data-disabled]': 'isDisabled() ? "" : null',
+  '[attr.data-full-width]': 'fullWidth() ? "" : null'
   }
 })
-export class ButtonComponent {
+export class Button {
 
   readonly variant = input<ButtonVariant>('filled');
 
@@ -57,8 +60,20 @@ export class ButtonComponent {
     transform: booleanAttribute
   });
 
-  readonly disabledState = computed(() =>
+  readonly nativeType = input<
+    'button' | 'submit' | 'reset'
+  >('button');
+
+  readonly isDisabled = computed(() =>
     this.loading() || this.disabled()
   );
+
+  readonly prefix = contentChild(ButtonPrefixDirective);
+
+  readonly suffix = contentChild(ButtonSuffixDirective);
+
+  readonly hasPrefix = computed(() => !!this.prefix());
+
+  readonly hasSuffix = computed(() => !!this.suffix());
 
 }

@@ -1,51 +1,282 @@
-:host{
+/* ==========================================================================
+   Nova Design System
+   Button Component
+   ========================================================================== */
 
-    display:inline-flex;
+:host {
+
+  /* ==========================================================================
+     Default Variables
+     ========================================================================== */
+
+  --nds-button-bg: var(--nds-color-primary);
+  --nds-button-color: var(--nds-color-on-primary);
+  --nds-button-border: transparent;
+
+  --nds-button-radius:
+    var(--nds-component-radius, var(--nds-radius-md));
+
+  --nds-button-padding-inline:
+    var(--nds-component-padding-inline, var(--nds-space-6));
+
+  --nds-button-padding-block:
+    var(--nds-component-padding-block, var(--nds-space-3));
+
+  --nds-button-gap:
+    var(--nds-component-gap, var(--nds-space-2));
+
+  --nds-button-font-size: .95rem;
+
+  --nds-button-shadow: none;
+
+  display: inline-flex;
+}
+
+/* ==========================================================================
+   Native Button
+   ========================================================================== */
+
+.nds-button__native {
+
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  gap: var(--nds-button-gap);
+
+  padding-inline: var(--nds-button-padding-inline);
+  padding-block: var(--nds-button-padding-block);
+
+  border-radius: var(--nds-button-radius);
+  border: 1px solid var(--nds-button-border);
+
+  background: var(--nds-button-bg);
+  color: var(--nds-button-color);
+
+  box-shadow: var(--nds-button-shadow);
+
+  font: inherit;
+  font-size: var(--nds-button-font-size);
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color .18s,
+    border-color .18s,
+    color .18s,
+    box-shadow .18s,
+    transform .12s;
+
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
+.nds-button__content {
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: inherit;
 
 }
 
-button{
+.nds-button__prefix,
+.nds-button__suffix {
 
-    position:relative;
-
-    overflow:hidden;
-
-    padding:16px 28px;
-
-    border-radius:999px;
-
-    transition:.35s;
-
-    font-weight:600;
-
-    cursor:pointer;
+  display: inline-flex;
+  align-items: center;
 
 }
 
-:host(.primary) button{
+.nds-button__label {
 
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
+  display: inline-flex;
+  align-items: center;
+
+}
+
+/* ==========================================================================
+   Sizes
+   ========================================================================== */
+
+:host([data-size="sm"]) {
+
+  --nds-button-padding-inline: var(--nds-space-4);
+  --nds-button-padding-block: var(--nds-space-2);
+  --nds-button-font-size: .875rem;
+
+}
+
+:host([data-size="lg"]) {
+
+  --nds-button-padding-inline: var(--nds-space-8);
+  --nds-button-padding-block: var(--nds-space-4);
+  --nds-button-font-size: 1rem;
+
+}
+
+/* ==========================================================================
+   Variants
+   ========================================================================== */
+
+// :host([data-variant="filled"]) {
+// }
+
+:host([data-variant="outlined"]) {
+
+  --nds-button-bg: transparent;
+  --nds-button-border: currentColor;
+
+}
+
+:host([data-variant="ghost"]) {
+
+  --nds-button-bg: transparent;
+  --nds-button-border: transparent;
+
+}
+
+:host([data-variant="text"]) {
+
+  --nds-button-bg: transparent;
+  --nds-button-border: transparent;
+
+  --nds-button-padding-inline: 0;
+
+}
+
+/* ==========================================================================
+   Colors
+   ========================================================================== */
+
+:host([data-color="primary"]) {
+
+  --nds-button-bg: var(--nds-color-primary);
+  --nds-button-color: var(--nds-color-on-primary);
+
+}
+
+:host([data-color="secondary"]) {
+
+  --nds-button-bg: var(--nds-color-secondary);
+  --nds-button-color: var(--nds-color-on-secondary);
+
+}
+
+:host([data-color="success"]) {
+
+  --nds-button-bg: var(--nds-color-success);
+  --nds-button-color: var(--nds-color-on-success);
+
+}
+
+:host([data-color="danger"]) {
+
+  --nds-button-bg: var(--nds-color-danger);
+  --nds-button-color: var(--nds-color-on-danger);
+
+}
+
+/* ==========================================================================
+   Hover
+   ========================================================================== */
+
+.nds-button__native:hover:not(:disabled) {
+
+  background:
+    color-mix(
+      in srgb,
+      var(--nds-button-bg) 90%,
+      white
     );
 
-    color:white;
+}
+
+/* ==========================================================================
+   Active
+   ========================================================================== */
+
+.nds-button__native:active:not(:disabled) {
+
+  transform: translateY(1px);
 
 }
 
-button:hover{
+/* ==========================================================================
+   Focus Visible
+   ========================================================================== */
 
-    transform:
+.nds-button__native:focus-visible {
 
-        translateY(-3px);
+  outline: none;
+
+  box-shadow:
+    0 0 0 3px
+      color-mix(
+        in srgb,
+        var(--nds-button-bg) 30%,
+        transparent
+      );
 
 }
 
-button:hover{
+/* ==========================================================================
+   Disabled
+   ========================================================================== */
 
-    box-shadow:
+.nds-button__native:disabled {
 
-        0 18px 45px rgba(92,108,255,.35);
+  opacity: .55;
+
+  cursor: not-allowed;
+
+}
+
+/* ==========================================================================
+   Loading
+   ========================================================================== */
+
+:host([data-loading]) {
+
+  pointer-events: none;
+
+}
+
+:host([data-loading]) .nds-button__content {
+
+  opacity: .35;
+
+}
+
+/* ==========================================================================
+   Full Width
+   ========================================================================== */
+
+:host([data-full-width]) {
+
+  width: 100%;
+
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .nds-button__native {
+
+    transition: none;
+
+  }
 
 }
