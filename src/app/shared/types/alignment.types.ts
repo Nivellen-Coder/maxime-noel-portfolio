@@ -5,6 +5,12 @@
  * -----------------------------------------------------------------------------
  */
 
+export type Alignment =
+  | 'start'
+  | 'center'
+  | 'end'
+  | 'stretch';
+
 export type HorizontalAlignment =
   | 'start'
   | 'center'
