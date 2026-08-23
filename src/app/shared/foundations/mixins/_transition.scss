@@ -1,0 +1,20 @@
+@mixin transition(
+  $properties...
+) {
+
+  transition:
+
+    $properties
+
+    var(--nds-duration-fast)
+
+    var(--nds-easing-standard);
+
+}
+
+@include transition(
+  background-color,
+  color,
+  border-color,
+  box-shadow
+);

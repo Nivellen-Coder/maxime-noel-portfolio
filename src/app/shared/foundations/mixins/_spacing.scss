@@ -1,0 +1,33 @@
+@mixin gap($selector) {
+
+  #{$selector}[data-gap="none"] {
+
+    gap: var(--nds-spacing-none);
+
+  }
+
+  #{$selector}[data-gap="xs"] {
+
+    gap: var(--nds-spacing-xs);
+
+  }
+
+  #{$selector}[data-gap="sm"] {
+
+    gap: var(--nds-spacing-sm);
+
+  }
+
+  #{$selector}[data-gap="md"] {
+
+    gap: var(--nds-spacing-md);
+
+  }
+
+  #{$selector}[data-gap="lg"] {
+
+    gap: var(--nds-spacing-lg);
+
+  }
+
+}

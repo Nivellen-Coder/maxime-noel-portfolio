@@ -1,0 +1,23 @@
+@mixin focus-ring(
+  $color: var(--nds-color-focus),
+  $width: 2px,
+  $offset: 2px
+) {
+
+  &:focus-visible {
+
+    outline: none;
+
+    box-shadow: 0 0 0 $width $color;
+
+    outline-offset: $offset;
+
+  }
+
+}
+
+.nds-button__native {
+
+    @include focus-ring();
+
+}

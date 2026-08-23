@@ -1,0 +1,8 @@
+@forward 'focus';
+@forward 'transition';
+@forward 'elevation';
+@forward 'disabled';
+@forward 'truncate';
+@forward 'visually-hidden';
+
+@use "@foundations/mixins" as mixins;

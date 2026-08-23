@@ -1,0 +1,14 @@
+@mixin disabled {
+
+  &:disabled,
+  &[aria-disabled="true"] {
+
+    opacity: .5;
+
+    cursor: not-allowed;
+
+    pointer-events: none;
+
+  }
+
+}

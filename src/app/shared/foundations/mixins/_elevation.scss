@@ -1,0 +1,29 @@
+@mixin elevation($level) {
+
+  @if $level == 0 {
+
+    box-shadow: none;
+
+  }
+
+  @else if $level == 1 {
+
+    box-shadow: var(--nds-shadow-sm);
+
+  }
+
+  @else if $level == 2 {
+
+    box-shadow: var(--nds-shadow-md);
+
+  }
+
+  @else if $level == 3 {
+
+    box-shadow: var(--nds-shadow-lg);
+
+  }
+
+}
+
+@include elevation(2);
