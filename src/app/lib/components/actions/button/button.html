@@ -1,0 +1,41 @@
+<button
+  class="nds-button__native"
+  [attr.type]="type()"
+  [disabled]="disabled()"
+  [attr.aria-busy]="loading() ? 'true' : null">
+
+  @if (loading()) {
+
+    <span class="nds-button__spinner">
+
+      <nds-spinner size="sm" />
+
+    </span>
+
+  }
+
+  <span
+    class="nds-button__content"
+    [class.nds-button__content--hidden]="loading()">
+
+    <span class="nds-button__prefix">
+
+      <ng-content select="[ndsPrefix]" />
+
+    </span>
+
+    <span class="nds-button__label">
+
+      <ng-content />
+
+    </span>
+
+    <span class="nds-button__suffix">
+
+      <ng-content select="[ndsSuffix]" />
+
+    </span>
+
+  </span>
+
+</button>
