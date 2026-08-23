@@ -1,19 +1,13 @@
-<label
-  class="nds-label__content"
-  [attr.for]="controlId()">
+<label class="nds-label__content">
 
   <ng-content />
 
   @if (required()) {
-
     <span
       class="nds-label__required"
       aria-hidden="true">
-
       *
-
     </span>
-
   }
 
 </label>

@@ -1,0 +1,36 @@
+<div class="nds-textarea__wrapper">
+
+    <div class="nds-textarea__prefix">
+
+        <ng-content
+            select="[ndsPrefix]" />
+
+    </div>
+
+    <textarea
+
+        class="nds-textarea__native"
+
+        [rows]="rows()"
+
+        [value]="value()"
+
+        [placeholder]="placeholder()"
+
+        [disabled]="disabled()"
+
+        [readOnly]="readonly()"
+
+        [required]="required()"
+
+        (input)="onInput($event)">
+    </textarea>
+
+    <div class="nds-textarea__suffix">
+
+        <ng-content
+            select="[ndsSuffix]" />
+
+    </div>
+
+</div>

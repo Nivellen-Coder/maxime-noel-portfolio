@@ -22,12 +22,12 @@ import { createUniqueId } from '../../../services/identifiers.service';
   providers: [
     {
       provide: FIELD_CONTEXT,
-      useFactory: (field: FieldComponent) => field.context,
-      deps: [FieldComponent]
+      useFactory: (field: Field) => field.context,
+      deps: [Field]
     }
   ]
 })
-export class FieldComponent {
+export class Field {
 
   /* --------------------------------------------------------------------------
    * Internal state

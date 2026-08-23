@@ -1,12 +1,21 @@
-<div class="nds-input__wrapper">
+<div class="nds-input__prefix">
 
-  <ng-content select="[ndsPrefix]"></ng-content>
+    <ng-content
+        select="[ndsPrefix]"/>
+
+    </div>
+
+
+  <div class="nds-input__suffix">
+
+    <ng-content
+        select="[ndsSuffix]"/>
 
   <input
     class="nds-input__native"
     ndsFieldControl
     [id]="controlId()"
-    [type]="type()"
+    [type]="nativeType()"
     [value]="value()"
     [placeholder]="placeholder()"
     [disabled]="disabled()"
@@ -16,6 +25,20 @@
     [attr.aria-describedby]="describedBy()"
     (input)="onInput($event)" />
 
+    @if (isPassword()) {
+
+    <button
+      class="nds-input__toggle"
+      type="button"
+      [attr.aria-label]="passwordVisible() ? 'Masquer le mot de passe' : 'Afficher le mot de passe'"
+      (click)="togglePasswordVisibility()">
+
+      <nds-icon
+        [name]="passwordVisible() ? 'close' : 'search'" />
+    </button>
+  }
+
   <ng-content select="[ndsSuffix]"></ng-content>
 
 </div>
+

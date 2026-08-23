@@ -11,8 +11,8 @@ import { FIELD_CONTEXT } from '../field/field-context';
 @Component({
   selector: 'nds-error-text',
   standalone: true,
-  templateUrl: './error-text.component.html',
-  styleUrl: './error-text.component.scss',
+  templateUrl: './error-text.html',
+  styleUrl: './error-text.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

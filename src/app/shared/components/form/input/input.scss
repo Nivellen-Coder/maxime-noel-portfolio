@@ -28,3 +28,49 @@
   @include mixins.focus-ring(".nds-input__native");
 
 }
+
+.nds-input__toggle {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  padding: 0;
+
+  color: inherit;
+
+  transition: opacity .2s ease;
+
+}
+
+.nds-input__toggle:hover {
+
+  opacity: .7;
+
+}
+
+.nds-input__toggle:focus-visible {
+
+  outline: none;
+
+}
+
+.nds-input[data-prefix="true"] {
+
+    padding-left:0;
+
+}
+
+.nds-input[data-suffix="true"] {
+
+    padding-right:0;
+
+}

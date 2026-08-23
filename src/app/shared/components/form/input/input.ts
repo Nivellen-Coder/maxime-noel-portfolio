@@ -3,9 +3,11 @@ import {
   Component,
   ViewEncapsulation,
   computed,
+  contentChildren,
   inject,
   input,
   model,
+  signal,
 } from '@angular/core';
 
 import { Size } from '../../../../shared/types/size.types';
@@ -15,6 +17,16 @@ import {
   InputVariant,
 } from './input.types';
 
+
+import {
+    PrefixDirective
+} from '../../../../shared/directives/prefix.directive';
+
+import {
+    SuffixDirective
+} from '../../../../shared/directives/suffix.directive';
+
+import { Icon } from '../../../../lib/components/icon/icon';
 @Component({
   selector: 'nds-input',
   standalone: true,
@@ -26,13 +38,16 @@ import {
     class: 'nds-input',
 
     '[attr.data-size]': 'size()',
-
     '[attr.data-variant]': 'variant()',
-
     '[attr.data-disabled]': 'disabled()',
-
     '[attr.data-readonly]': 'readonly()',
+
+    '[attr.data-prefix]': 'hasPrefix()',
+    '[attr.data-suffix]': 'hasSuffix()',
   },
+  imports: [
+    Icon,
+  ]
 })
 export class Input {
 
@@ -70,6 +85,32 @@ export class Input {
    * -------------------------------------------------------------------------- */
 
   readonly value = model<string>('');
+
+    /* --------------------------------------------------------------------------
+  * Internal state
+  * -------------------------------------------------------------------------- */
+
+  readonly passwordVisible = signal(false);
+
+  /* --------------------------------------------------------------------------
+  * Derived state
+  * -------------------------------------------------------------------------- */
+
+  readonly isPassword = computed(
+    () => this.type() === 'password',
+  );
+
+  readonly nativeType = computed(() => {
+
+    if (!this.isPassword()) {
+      return this.type();
+    }
+
+    return this.passwordVisible()
+      ? 'text'
+      : 'password';
+
+  });
 
   /* --------------------------------------------------------------------------
    * Accessibility
@@ -116,5 +157,31 @@ export class Input {
     this.value.set(element.value);
 
   }
+
+  /* --------------------------------------------------------------------------
+  * Event handlers
+  * -------------------------------------------------------------------------- */
+
+  protected togglePasswordVisibility(): void {
+
+    this.passwordVisible.update(
+      visible => !visible,
+    );
+
+  }
+
+  readonly prefixes =
+    contentChildren(PrefixDirective);
+
+  readonly suffixes =
+    contentChildren(SuffixDirective);
+
+  readonly hasPrefix = computed(
+    () => this.prefixes().length > 0
+  );
+
+  readonly hasSuffix = computed(
+    () => this.suffixes().length > 0
+  );
 
 }

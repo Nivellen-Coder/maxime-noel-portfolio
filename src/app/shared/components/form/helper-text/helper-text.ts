@@ -11,8 +11,8 @@ import { FIELD_CONTEXT } from '../field/field-context';
 @Component({
   selector: 'nds-helper-text',
   standalone: true,
-  templateUrl: './helper-text.component.html',
-  styleUrl: './helper-text.component.scss',
+  templateUrl: './helper-text.html',
+  styleUrl: './helper-text.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

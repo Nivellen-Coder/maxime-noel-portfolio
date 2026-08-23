@@ -20,22 +20,19 @@ import { FIELD_CONTEXT } from '../field/field-context';
     class: 'nds-label',
   },
 })
-export class LabelComponent {
+export class Label {
 
   /* --------------------------------------------------------------------------
    * Context
    * -------------------------------------------------------------------------- */
 
-  private readonly field = inject(
-    FIELD_CONTEXT,
-    {
-      optional: true,
-    },
-  );
-
   /* --------------------------------------------------------------------------
    * Inputs
    * -------------------------------------------------------------------------- */
+
+  private readonly field = inject(FIELD_CONTEXT, {
+    optional: true,
+  });
 
   readonly required = input(false);
 
@@ -44,7 +41,7 @@ export class LabelComponent {
    * -------------------------------------------------------------------------- */
 
   readonly controlId = computed(() =>
-    this.field?.controlId() ?? null,
+    this.field?.controlId() ?? null
   );
 
 }
