@@ -1,50 +1,60 @@
 import {
-  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
   ViewEncapsulation,
-  input
+  input,
 } from '@angular/core';
 
-import {
-  StackAlign,
-  StackDirection,
-  StackGap,
-  StackJustify
-} from './stack.types';
+import { Alignment } from '../../types/alignment.types';
+import { Justify } from '../../types/justify.types';
+import { Spacing } from '../../types/spacing.types';
 
 @Component({
   selector: 'nds-stack',
   standalone: true,
+
   templateUrl: './stack.html',
   styleUrl: './stack.scss',
+
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+
   host: {
+
     class: 'nds-stack',
 
-    '[attr.data-direction]': 'direction()',
     '[attr.data-gap]': 'gap()',
+
+    '[attr.data-padding]': 'padding()',
+
     '[attr.data-align]': 'align()',
+
     '[attr.data-justify]': 'justify()',
 
-    '[attr.data-wrap]': 'wrap() ? "" : null',
+    '[attr.data-full-width]': 'fullWidth()',
 
-    role: 'group'
   }
+
 })
 export class Stack {
 
-  readonly direction = input<StackDirection>('column');
+  /* --------------------------------------------------------------------------
+   * Inputs
+   * -------------------------------------------------------------------------- */
 
-  readonly gap = input<StackGap>('md');
+  readonly gap =
+    input<Spacing>('md');
 
-  readonly align = input<StackAlign>('stretch');
+  readonly padding =
+    input<Spacing>('none');
 
-  readonly justify = input<StackJustify>('start');
+  readonly align =
+    input<Alignment>('stretch');
 
-  readonly wrap = input(false, {
-    transform: booleanAttribute
-  });
+  readonly justify =
+    input<Justify>('start');
+
+  readonly fullWidth =
+    input(false);
 
 }

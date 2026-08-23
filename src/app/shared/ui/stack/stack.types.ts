@@ -1,26 +1,30 @@
-export type StackDirection =
-    | 'row'
-    | 'column';
+import { Spacing } from '../../types/spacing.types';
+import { Alignment } from '../../types/alignment.types';
+import { Justify } from '../../types/justify.types';
+
 
 export type StackAlign =
-    | 'stretch'
-    | 'start'
-    | 'center'
-    | 'end'
-    | 'baseline';
+  | 'start'
+  | 'center'
+  | 'end'
+  | 'stretch';
 
 export type StackJustify =
-    | 'start'
-    | 'center'
-    | 'end'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
+  | 'start'
+  | 'center'
+  | 'end'
+  | 'between'
+  | 'around'
+  | 'evenly';
 
-export type StackGap =
-    | 'none'
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'xl';
+export interface StackConfig {
+
+  readonly gap: Spacing;
+
+  readonly padding: Spacing;
+
+  readonly align: Alignment;
+
+  readonly justify: Justify;
+
+}

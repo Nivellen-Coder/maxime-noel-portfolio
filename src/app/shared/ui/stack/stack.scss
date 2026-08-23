@@ -1,163 +1,137 @@
-/* ==========================================================================
-   Nova Design System
-   Stack Component
-   ========================================================================== */
+@use "@foundations/mixins" as mixins;
+
+@include mixins.gap(":host");
+
+@include mixins.padding(":host");
 
 :host {
+
+  display: block;
+
+}
+
+.nds-stack__container {
 
   display: flex;
 
   flex-direction: column;
 
-  align-items: stretch;
+}
 
-  justify-content: flex-start;
+.nds-inline__container {
 
-  gap: var(
-    --nds-component-gap,
-    var(--nds-space-6)
-  );
+    display:flex;
 
-  box-sizing: border-box;
+    flex-direction:row;
 
 }
 
-/* ==========================================================================
-   Direction
-   ========================================================================== */
+:host([data-full-width="true"]) {
 
-:host([data-direction="row"]) {
+  width: 100%;
+
+}
+
+:host([data-direction="horizontal"])
+.nds-stack__container {
 
   flex-direction: row;
 
 }
 
-:host([data-direction="column"]) {
+:host([data-wrap="true"])
+.nds-stack__container {
 
-  flex-direction: column;
-
-}
-
-/* ==========================================================================
-   Gap
-   ========================================================================== */
-
-:host([data-gap="none"]) {
-
-  --nds-component-gap: 0;
+  flex-wrap: wrap;
 
 }
 
-:host([data-gap="xs"]) {
+:host([data-full-width="true"]) {
 
-  --nds-component-gap: var(--nds-space-2);
-
-}
-
-:host([data-gap="sm"]) {
-
-  --nds-component-gap: var(--nds-space-4);
+  width: 100%;
 
 }
 
-:host([data-gap="md"]) {
-
-  --nds-component-gap: var(--nds-space-6);
-
-}
-
-:host([data-gap="lg"]) {
-
-  --nds-component-gap: var(--nds-space-8);
-
-}
-
-:host([data-gap="xl"]) {
-
-  --nds-component-gap: var(--nds-space-12);
-
-}
-
-/* ==========================================================================
-   Align
-   ========================================================================== */
-
-:host([data-align="start"]) {
+:host([data-align="start"]) .nds-stack__container {
 
   align-items: flex-start;
 
 }
 
-:host([data-align="center"]) {
+:host([data-align="center"]) .nds-stack__container {
 
   align-items: center;
 
 }
 
-:host([data-align="end"]) {
+:host([data-align="end"]) .nds-stack__container {
 
   align-items: flex-end;
 
 }
 
-:host([data-align="stretch"]) {
+:host([data-align="stretch"]) .nds-stack__container {
 
   align-items: stretch;
 
 }
 
-:host([data-align="baseline"]) {
-
-  align-items: baseline;
-
-}
-
-/* ==========================================================================
-   Justify
-   ========================================================================== */
-
-:host([data-justify="start"]) {
+:host([data-justify="start"]) .nds-stack__container {
 
   justify-content: flex-start;
 
 }
 
-:host([data-justify="center"]) {
+:host([data-justify="center"]) .nds-stack__container {
 
   justify-content: center;
 
 }
 
-:host([data-justify="end"]) {
+:host([data-justify="end"]) .nds-stack__container {
 
   justify-content: flex-end;
 
 }
 
-:host([data-justify="space-between"]) {
+:host([data-justify="between"]) .nds-stack__container {
 
   justify-content: space-between;
 
 }
 
-:host([data-justify="space-around"]) {
+:host([data-justify="around"]) .nds-stack__container {
 
   justify-content: space-around;
 
 }
 
-:host([data-justify="space-evenly"]) {
+:host([data-justify="evenly"]) .nds-stack__container {
 
   justify-content: space-evenly;
 
 }
 
-/* ==========================================================================
-   Wrap
-   ========================================================================== */
+:host([data-gap="none"]) .nds-stack__container {
+  gap: var(--nds-spacing-none);
+}
 
-:host([data-wrap]) {
+:host([data-gap="xs"]) .nds-stack__container {
+  gap: var(--nds-spacing-xs);
+}
 
-  flex-wrap: wrap;
+:host([data-gap="sm"]) .nds-stack__container {
+  gap: var(--nds-spacing-sm);
+}
 
+:host([data-gap="md"]) .nds-stack__container {
+  gap: var(--nds-spacing-md);
+}
+
+:host([data-gap="lg"]) .nds-stack__container {
+  gap: var(--nds-spacing-lg);
+}
+
+:host([data-gap="xl"]) .nds-stack__container {
+  gap: var(--nds-spacing-xl);
 }
