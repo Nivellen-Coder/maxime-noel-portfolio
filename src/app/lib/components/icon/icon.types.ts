@@ -6,11 +6,25 @@ export type IconSize =
     | 'xl';
 
 export type IconName =
-    | 'check'
-    | 'close'
-    | 'search'
-    | 'download'
-    | 'arrow-left'
-    | 'arrow-right'
-    | 'plus'
-    | 'minus';
+  | 'search'
+  | 'close'
+  | 'check'
+  | 'eye'
+  | 'eye-off'
+  | 'warning'
+  | 'error'
+  | 'info'
+  | 'success'
+  | 'chevron-down'
+  | 'chevron-up'
+  | 'chevron-left'
+  | 'chevron-right'
+  | 'menu'
+  | 'settings'
+  | 'user'
+  | 'calendar'
+  | 'clock'
+  | 'download'
+  | 'upload'
+  | 'plus'
+  | 'minus';
