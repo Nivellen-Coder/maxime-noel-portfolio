@@ -1,0 +1,53 @@
+<button
+  class="nds-button__native"
+  [type]="type()"
+  [disabled]="isDisabled()"
+  [attr.aria-busy]="loading()"
+  [attr.aria-disabled]="isDisabled()">
+
+  @if (loading()) {
+
+    <span
+      class="nds-button__spinner"
+      aria-hidden="true">
+
+      <nds-spinner
+        size="sm" />
+
+    </span>
+
+  }
+
+  @if (hasPrefix()) {
+
+    <span
+      class="nds-button__prefix"
+      aria-hidden="true">
+
+      <ng-content
+        select="[ndsPrefix]" />
+
+    </span>
+
+  }
+
+  <span class="nds-button__content">
+
+    <ng-content />
+
+  </span>
+
+  @if (hasSuffix()) {
+
+    <span
+      class="nds-button__suffix"
+      aria-hidden="true">
+
+      <ng-content
+        select="[ndsSuffix]" />
+
+    </span>
+
+  }
+
+</button>

@@ -1,0 +1,136 @@
+@use '../../../../foundations/mixins' as mixins;
+
+:host {
+
+  --nds-button-height: 2.75rem;
+
+  --nds-button-padding-inline: 1rem;
+
+  --nds-button-gap: .5rem;
+
+  --nds-button-radius: var(--nds-radius-md);
+
+  --nds-button-background: var(--nds-color-primary);
+
+  --nds-button-color: var(--nds-color-on-primary);
+
+  --nds-button-border: transparent;
+
+}
+
+:host([data-size="sm"]) {
+
+  --nds-button-height: 2rem;
+
+  --nds-button-padding-inline: .75rem;
+
+}
+
+:host([data-size="lg"]) {
+
+  --nds-button-height: 3.25rem;
+
+  --nds-button-padding-inline: 1.5rem;
+
+}
+
+:host([data-variant="outlined"]) {
+
+  --nds-button-background: transparent;
+
+  --nds-button-color: var(--nds-color-primary);
+
+  --nds-button-border: var(--nds-color-primary);
+
+}
+
+:host([data-variant="ghost"]) {
+
+  --nds-button-background: transparent;
+
+  --nds-button-border: transparent;
+
+}
+
+:host([data-variant="text"]) {
+
+  --nds-button-background: transparent;
+
+  --nds-button-border: transparent;
+
+  --nds-button-padding-inline: .25rem;
+
+}
+
+:host([data-color="success"]) {
+
+  --nds-button-background: var(--nds-color-success);
+
+  --nds-button-color: var(--nds-color-on-success);
+
+}
+
+:host([data-color="danger"]) {
+
+  --nds-button-background: var(--nds-color-danger);
+
+  --nds-button-color: var(--nds-color-on-danger);
+
+}
+
+.nds-button__native {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: var(--nds-button-gap);
+
+  width: 100%;
+
+  min-height: var(--nds-button-height);
+
+  padding-inline: var(--nds-button-padding-inline);
+
+  border: 1px solid var(--nds-button-border);
+
+  border-radius: var(--nds-button-radius);
+
+  background: var(--nds-button-background);
+
+  color: var(--nds-button-color);
+
+  cursor: pointer;
+
+  font: inherit;
+
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    color .2s ease,
+    box-shadow .2s ease,
+    transform .1s ease;
+
+}
+
+.nds-button__native:hover:not(:disabled) {
+
+  filter: brightness(.96);
+
+}
+
+.nds-button__native:active:not(:disabled) {
+
+  transform: translateY(1px);
+
+}
+
+.nds-button__native:disabled {
+
+  opacity: .55;
+
+  cursor: not-allowed;
+
+}
