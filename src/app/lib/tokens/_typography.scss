@@ -1,0 +1,84 @@
+:root {
+
+  /* --------------------------------------------------------------------------
+   * Font Families
+   * -------------------------------------------------------------------------- */
+
+  --nds-font-family-sans:
+      "Inter",
+      system-ui,
+      sans-serif;
+
+  --nds-font-family-mono:
+      "JetBrains Mono",
+      monospace;
+
+  /* --------------------------------------------------------------------------
+ * Font Weights
+ * -------------------------------------------------------------------------- */
+
+  --nds-font-weight-light:300;
+
+  --nds-font-weight-regular:400;
+
+  --nds-font-weight-medium:500;
+
+  --nds-font-weight-semibold:600;
+
+  --nds-font-weight-bold:700;
+
+
+  /* --------------------------------------------------------------------------
+ * Font Sizes
+ * -------------------------------------------------------------------------- */
+
+--nds-font-size-display:
+    clamp(3rem,5vw,4.5rem);
+
+--nds-font-size-2xl:
+    2.5rem;
+
+--nds-font-size-xl:
+    2rem;
+
+--nds-font-size-lg:
+    1.5rem;
+
+--nds-font-size-md:
+    1.25rem;
+
+--nds-font-size-sm:
+    1rem;
+
+--nds-font-size-xs:
+    .875rem;
+
+/* --------------------------------------------------------------------------
+ * Line Heights
+ * -------------------------------------------------------------------------- */
+
+--nds-line-height-tight:
+    1.1;
+
+--nds-line-height-normal:
+    1.4;
+
+--nds-line-height-relaxed:
+    1.6;
+
+/* --------------------------------------------------------------------------
+ * Letter Spacing
+ * -------------------------------------------------------------------------- */
+
+--nds-letter-spacing-tight:
+    -.03em;
+
+--nds-letter-spacing-normal:
+    0;
+
+--nds-letter-spacing-wide:
+    .04em;
+
+}
+
+
