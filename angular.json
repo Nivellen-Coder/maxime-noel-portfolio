@@ -29,9 +29,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles/styles.scss"
-            ]
+            "styles": ["src/styles/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -86,6 +84,32 @@
             "configDir": ".storybook",
             "browserTarget": "maxime-noel-portfolio:build",
             "outputDir": "storybook-static"
+          }
+        }
+      }
+    },
+    "nova": {
+      "projectType": "library",
+      "root": "projects/nova",
+      "sourceRoot": "projects/nova/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/nova/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/nova/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/nova/tsconfig.spec.json"
           }
         }
       }
