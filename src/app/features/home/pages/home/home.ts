@@ -183,28 +183,31 @@ export class Home {
   }
 
   readonly projects = [
-    {
-      name: 'Vault Keeper',
-      kind: 'Projet principal',
-      description:
-        'Gestionnaire de collections gaming, séries, films et plus encore.',
-      tags: ['Angular', '.NET', 'SQL Server'],
-    },
-    {
-      name: 'CardNexus',
-      kind: 'Projet personnel',
-      description:
-        'Marketplace de cartes à collectionner.',
-      tags: ['Angular', 'Firebase', 'Stripe'],
-    },
-    {
-      name: 'TaskFlow',
-      kind: 'Projet personnel',
-      description:
-        'Application de gestion de tâches collaborative.',
-      tags: ['Angular', 'Tailwind CSS', 'PWA'],
-    },
-  ];
+  {
+    name: 'Vault Keeper',
+    kind: 'Projet principal',
+    description:
+      'Plateforme de gestion et de découverte dédiée aux collections gaming.',
+    tags: ['Angular', '.NET', 'SQL Server'],
+    category: 'Gaming platform',
+  },
+  {
+    name: 'CardNexus',
+    kind: 'Projet personnel',
+    description:
+      'Marketplace dédiée aux cartes à collectionner et à leur gestion.',
+    tags: ['Angular', 'Firebase', 'Stripe'],
+    category: 'TCG marketplace',
+  },
+  {
+    name: 'TaskFlow',
+    kind: 'Projet personnel',
+    description:
+      'Application collaborative pour organiser ses tâches et projets.',
+    tags: ['Angular', 'Tailwind CSS', 'PWA'],
+    category: 'Productivity',
+  },
+];
 
   readonly skills = [
     'Angular',
