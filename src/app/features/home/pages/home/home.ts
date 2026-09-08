@@ -1,14 +1,4 @@
-import {
-  afterNextRender,
-  ChangeDetectionStrategy,
-  Component,
-  DestroyRef,
-  ElementRef,
-  inject,
-  signal,
-} from '@angular/core';
-
-import { AnimationService } from '../../../../core/animation/animation.service';
+import { afterNextRender, ChangeDetectionStrategy, Component, ElementRef, inject, OnDestroy, signal } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -17,218 +7,49 @@ import { AnimationService } from '../../../../core/animation/animation.service';
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Home {
+export class Home implements OnDestroy {
   private readonly elementRef = inject(ElementRef<HTMLElement>);
-  private readonly animation = inject(AnimationService);
-  private readonly destroyRef = inject(DestroyRef);
-
+  private carouselTimer?: ReturnType<typeof setInterval>;
+  readonly activeSlide = signal(0);
   readonly selectedProject = signal('Vault Keeper');
   readonly selectedSkill = signal<string | null>(null);
-
-  constructor() {
-    afterNextRender(() => {
-      this.initializeAnimations();
-    });
-  }
-
-  selectProject(name: string): void {
-    this.selectedProject.set(name);
-  }
-
-  selectSkill(skill: string): void {
-    this.selectedSkill.update((value) =>
-      value === skill ? null : skill,
-    );
-  }
-
-  private initializeAnimations(): void {
-  const root = this.elementRef.nativeElement;
-
-  this.animation.initialize();
-
-  this.animateHero(root);
-  this.animatePanels(root);
-  this.animateProjects(root);
-  this.animateSkills(root);
-  this.animateJourney(root);
-}
-
-  /**
-   * Hero entrance animation.
-   */
-  private animateHero(root: HTMLElement): void {
-  const hero = root.querySelector<HTMLElement>('.hero');
-
-  if (!hero) {
-    return;
-  }
-
-  const content = hero.querySelectorAll<HTMLElement>(
-    '.hero__content > *',
-  );
-
-  const motto = hero.querySelector<HTMLElement>('.hero__motto');
-  const image = hero.querySelector<HTMLElement>('.hero__image');
-
-  this.animation.entrance(content, {
-    y: 22,
-    duration: 0.8,
-    stagger: 0.09,
-  });
-
-  if (motto) {
-    this.animation.entrance([motto], {
-      y: 12,
-      duration: 0.9,
-    });
-  }
-
-  if (!image) {
-    return;
-  }
-
-  this.animation.parallax(image, {
-    y: 24,
-    start: 'top top',
-    end: 'bottom top',
-  });
-
-  this.animation.heroParallax(
-    hero,
-    [
-      {
-        element: image,
-        intensity: 8,
-      },
-    ],
-    this.destroyRef,
-  );
-
-  this.animation.heroSpotlight(
-    hero,
-    this.destroyRef,
-  );
-}
-
-  /**
-   * Main panels reveal.
-   */
-  private animatePanels(root: HTMLElement): void {
-    const panels = root.querySelectorAll<HTMLElement>(
-      '.panel:not(.hero)',
-    );
-
-    panels.forEach((panel, index) => {
-      this.animation.reveal(panel, {
-        y: 24,
-        duration: 0.75,
-        delay: Math.min(index * 0.03, 0.18),
-      });
-    });
-  }
-
-  /**
-   * Featured projects staggered reveal.
-   */
-  private animateProjects(root: HTMLElement): void {
-  const projects = root.querySelectorAll<HTMLElement>(
-    '.projects__grid .project',
-  );
-
-  this.animation.staggerReveal(projects, {
-    y: 20,
-    duration: 0.7,
-    stagger: 0.1,
-    start: 'top 86%',
-  });
-
-  projects.forEach((project) => {
-    this.animation.projectTilt(
-      project,
-      this.destroyRef,
-    );
-  });
-}
-
-  /**
-   * Skills staggered reveal.
-   */
-  private animateSkills(root: HTMLElement): void {
-    const skills = root.querySelectorAll<HTMLElement>(
-      '.skills__grid article',
-    );
-
-    this.animation.staggerReveal(skills, {
-      y: 16,
-      duration: 0.6,
-      stagger: 0.06,
-      start: 'top 88%',
-    });
-  }
-
-  /**
-   * Journey entries reveal.
-   */
-  private animateJourney(root: HTMLElement): void {
-    const entries = root.querySelectorAll<HTMLElement>(
-      '.journey li',
-    );
-
-    this.animation.staggerReveal(entries, {
-      y: 16,
-      duration: 0.65,
-      stagger: 0.1,
-      start: 'top 86%',
-    });
-  }
-
   readonly projects = [
-  {
-    name: 'Vault Keeper',
-    kind: 'Projet principal',
-    description:
-      'Plateforme de gestion et de découverte dédiée aux collections gaming.',
-    tags: ['Angular', '.NET', 'SQL Server'],
-    category: 'Gaming platform',
-  },
-  {
-    name: 'CardNexus',
-    kind: 'Projet personnel',
-    description:
-      'Marketplace dédiée aux cartes à collectionner et à leur gestion.',
-    tags: ['Angular', 'Firebase', 'Stripe'],
-    category: 'TCG marketplace',
-  },
-  {
-    name: 'TaskFlow',
-    kind: 'Projet personnel',
-    description:
-      'Application collaborative pour organiser ses tâches et projets.',
-    tags: ['Angular', 'Tailwind CSS', 'PWA'],
-    category: 'Productivity',
-  },
-];
-
-  readonly skills = [
-    'Angular',
-    'TypeScript',
-    '.NET',
-    'Tailwind CSS',
-    'Git',
-    'Docker',
-    'PostgreSQL',
-    'Figma',
-    'Playwright',
-    'Linux',
-    'VS Code',
-    'GitHub',
+    { name: 'Vault Keeper', kind: 'Projet principal', description: 'Gestionnaire de collections gaming, series, films et plus encore.', tags: ['Angular', '.NET', 'SQL Server'] },
+    { name: 'CardNexus', kind: 'Projet personnel', description: 'Marketplace de cartes a collectionner.', tags: ['Angular', 'Firebase', 'Stripe'] },
+    { name: 'TaskFlow', kind: 'Projet personnel', description: 'Application de gestion de taches collaborative.', tags: ['Angular', 'Tailwind CSS', 'PWA'] },
   ];
+  readonly skills = ['Angular', 'TypeScript', '.NET', 'Tailwind CSS', 'Git', 'Docker', 'PostgreSQL', 'Figma', 'Playwright', 'Linux', 'VS Code', 'GitHub'];
+  readonly interests = [['Game', 'Gaming', 'Enthusiast'], ['TCG', 'TCG', 'Collector'], ['Music', 'Metalhead', ''], ['Travel', 'Traveler', ''], ['Art', 'Art & Design', '']];
 
-  readonly interests = [
-    ['🎮', 'Gaming', 'Enthusiast'],
-    ['▣', 'TCG', 'Collector'],
-    ['♫', 'Metalhead', ''],
-    ['✈', 'Traveler', ''],
-    ['✎', 'Art & Design', ''],
-  ];
+  constructor() { afterNextRender(() => { this.enableInteractions(); this.startCarousel(); }); }
+
+  nextSlide(): void { this.activeSlide.update(slide => (slide + 1) % 2); this.restartCarousel(); }
+  previousSlide(): void { this.activeSlide.update(slide => (slide + 1) % 2); this.restartCarousel(); }
+  selectSlide(slide: number): void { this.activeSlide.set(slide); this.restartCarousel(); }
+  ngOnDestroy(): void { this.stopCarousel(); }
+
+  private startCarousel(): void {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this.carouselTimer = setInterval(() => this.activeSlide.update(slide => (slide + 1) % 2), 7000);
+  }
+
+  private stopCarousel(): void { if (this.carouselTimer) clearInterval(this.carouselTimer); }
+  private restartCarousel(): void { this.stopCarousel(); this.startCarousel(); }
+
+  private enableInteractions(): void {
+    const root = this.elementRef.nativeElement as HTMLElement;
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+    }), { threshold: .14 });
+    root.querySelectorAll<HTMLElement>('.panel').forEach(element => observer.observe(element));
+    root.querySelectorAll<HTMLElement>('.project').forEach((project, index) => project.addEventListener('click', () => {
+      this.selectedProject.set(this.projects[index].name);
+      root.querySelectorAll('.project').forEach(item => item.classList.remove('project--active'));
+      project.classList.add('project--active');
+    }));
+    root.querySelectorAll<HTMLElement>('.skills article').forEach((skill, index) => skill.addEventListener('click', () => {
+      this.selectedSkill.set(this.skills[index]);
+      root.querySelectorAll('.skills article').forEach(item => item.classList.toggle('skill--active', item === skill));
+    }));
+  }
 }

@@ -13,3 +13,10 @@
 
 @use './app/shared/foundations';
 
+.light-theme body { background:#edf2ff; color:#0d1830; }
+.light-theme .portfolio { background:#edf2ff; color:#101a31; }
+.light-theme .portfolio .panel { background:linear-gradient(145deg,#ffffff,#e8efff); border-color:#b7c8eb; box-shadow:0 10px 26px rgba(44,67,112,.12); }
+.light-theme .portfolio .hero,.light-theme .portfolio .about,.light-theme .portfolio .contact { color:#f4f6ff; }
+.light-theme .navbar { background:rgba(245,248,255,.9); color:#111b33; border-color:#b7c8eb; }
+.light-theme .navbar__actions button { color:#111b33; }
+

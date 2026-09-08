@@ -1,36 +1,6 @@
-<header class="navbar">
-  <a
-    class="brand"
-    href="#accueil"
-    aria-label="Retour à l'accueil"
-  >
-    <b>MN</b>
-
-    <span>
-      MAXIME NOËL
-      <small>DEVELOPER PORTFOLIO</small>
-    </span>
-  </a>
-
-  <nav aria-label="Navigation principale">
-    <a href="#accueil" class="active">Accueil</a>
-    <a href="#apropos">À propos</a>
-    <a href="#competences">Compétences</a>
-    <a href="#projets">Projets</a>
-    <a href="#experience">Expérience</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <div class="navbar__actions">
-    <button
-      type="button"
-      aria-label="Changer de thème"
-    >
-      ☾
-    </button>
-
-    <a href="#contact">
-      Discutons →
-    </a>
-  </div>
+<header class="navbar" [class.navbar--open]="menuOpen()">
+  <a class="brand" href="#accueil" (click)="closeNavigation()"><b>MN</b><span>MAXIME NOEL<small>DEVELOPER PORTFOLIO</small></span></a>
+  <button class="navbar__menu" type="button" (click)="toggleNavigation()" [attr.aria-expanded]="menuOpen()" aria-label="Ouvrir la navigation">{{ menuOpen() ? 'Close' : 'Menu' }}</button>
+  <nav aria-label="Navigation principale"><a href="#accueil" class="active" (click)="closeNavigation()">Accueil</a><a href="#apropos" (click)="closeNavigation()">A propos</a><a href="#competences" (click)="closeNavigation()">Competences</a><a href="#projets" (click)="closeNavigation()">Projets</a><a href="#experience" (click)="closeNavigation()">Experience</a><a href="#contact" (click)="closeNavigation()">Contact</a></nav>
+  <div class="navbar__actions"><a href="#contact">Discutons &rarr;</a></div>
 </header>
