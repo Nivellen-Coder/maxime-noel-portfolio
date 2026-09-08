@@ -4,8 +4,20 @@
    Spacing
    ========================================================================== */
 
-@use '../tokens/spacing';
 @use './generator';
+
+/* --------------------------------------------------------------------------
+ * Spacing Scale
+ * -------------------------------------------------------------------------- */
+
+$nds-spacing-scale: (
+  none: 0,
+  xs: var(--nds-space-2),
+  sm: var(--nds-space-4),
+  md: var(--nds-space-6),
+  lg: var(--nds-space-8),
+  xl: var(--nds-space-12)
+);
 
 /* --------------------------------------------------------------------------
  * Padding
@@ -14,7 +26,7 @@
 @include generator.generate-utilities(
   'nds-padding',
   '--nds-component-padding',
-  spacing.$nds-spacing-scale
+  $nds-spacing-scale
 );
 
 /* --------------------------------------------------------------------------
@@ -24,7 +36,7 @@
 @include generator.generate-utilities(
   'nds-padding-inline',
   '--nds-component-padding-inline',
-  spacing.$nds-spacing-scale
+  $nds-spacing-scale
 );
 
 /* --------------------------------------------------------------------------
@@ -34,7 +46,7 @@
 @include generator.generate-utilities(
   'nds-padding-block',
   '--nds-component-padding-block',
-  spacing.$nds-spacing-scale
+  $nds-spacing-scale
 );
 
 /* --------------------------------------------------------------------------
@@ -44,7 +56,7 @@
 @include generator.generate-utilities(
   'nds-gap',
   '--nds-component-gap',
-  spacing.$nds-spacing-scale
+  $nds-spacing-scale
 );
 
 /* --------------------------------------------------------------------------
@@ -54,7 +66,7 @@
 @include generator.generate-utilities(
   'nds-row-gap',
   '--nds-component-row-gap',
-  spacing.$nds-spacing-scale
+  $nds-spacing-scale
 );
 
 /* --------------------------------------------------------------------------
@@ -64,14 +76,5 @@
 @include generator.generate-utilities(
   'nds-column-gap',
   '--nds-component-column-gap',
-  spacing.$nds-spacing-scale
-);
-
-$nds-spacing-scale: (
-  none: 0,
-  xs: var(--nds-space-2),
-  sm: var(--nds-space-4),
-  md: var(--nds-space-6),
-  lg: var(--nds-space-8),
-  xl: var(--nds-space-12)
+  $nds-spacing-scale
 );

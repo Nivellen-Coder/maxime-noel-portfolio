@@ -1,0 +1,19 @@
+.nova-test {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  padding: 3rem;
+}
+
+.nova-test__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nova-test__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

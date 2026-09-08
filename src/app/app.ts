@@ -1,12 +1,26 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  NgModule,
+  ViewEncapsulation
+} from '@angular/core';
 
+import { LucideAngularModule,
+         Eye,
+         EyeOff
+        } from 'lucide-angular';
+
+import {
+  RouterOutlet
+} from '@angular/router';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [
+    RouterOutlet,
+    LucideAngularModule,
+  ],
   templateUrl: './app.html',
-  styleUrl: '../styles.scss'
+  styleUrl: '../styles.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class App {
-  protected readonly title = signal('maxime-noel-portfolio');
-}
+export class App {}

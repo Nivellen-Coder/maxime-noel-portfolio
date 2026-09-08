@@ -1,25 +1,11 @@
-/* ==========================================================================
-   Nova Design System
-   Foundations
-   ========================================================================== */
-
-/* Tokens */
-
 @forward './tokens/colors';
 @forward './tokens/spacing';
 @forward './tokens/radius';
-@forward './tokens/shadow';
+@forward './tokens/shadows';
 @forward './tokens/motion';
-
-/* Themes */
+@forward './tokens/typography';
 
 @forward './themes/light';
 @forward './themes/dark';
 
-/* Utilities */
-
-@forward './utilities';
-
-@forward './tokens';
-@forward './themes';
 @forward './utilities';

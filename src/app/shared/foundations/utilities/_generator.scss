@@ -3,7 +3,7 @@
    Foundation Utilities
    Generator
    ========================================================================== */
-
+@use 'sass:meta';
 @use "sass:map";
 
 /// Generates utility classes from a Sass map.
@@ -36,7 +36,7 @@
   $values
 ) {
 
-  @if type-of($values) != "map" {
+  @if meta.type-of($values) != 'map' {
     @error "$values must be a Sass map.";
   }
 

@@ -1,87 +1,200 @@
-:root {
+/* ==========================================================================
+   Nova Design System
+   Input
+   ========================================================================== */
 
-    /* Background */
+.nds-input {
+  display: block;
+  width: 100%;
+}
 
-    --nds-color-background: #090B12;
+/* ==========================================================================
+   Wrapper
+   ========================================================================== */
 
-    --nds-color-surface: #101522;
+.nds-input__wrapper {
+  display: flex;
+  align-items: center;
 
-    --nds-color-surface-hover: #161D2D;
+  width: 100%;
+  min-height: 44px;
 
-    /* Text */
+  padding-inline: 14px;
+  gap: 8px;
 
-    --nds-color-text:#F5F7FA;
+  border: 1px solid var(--nds-surface-border);
+  border-radius: var(--nds-radius-md);
 
-    --nds-color-text-muted:#B7C0D8;
+  background: var(--nds-color-surface);
 
-    --nds-color-text-subtle:#7B87A4;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    opacity 160ms ease;
+}
 
-    /* ------------------------------------------------------------------------
-    * Brand
-    * --------------------------------------------------------------------- */
+/* ==========================================================================
+   Hover
+   ========================================================================== */
 
-  --nds-color-primary-50:  #f5f3ff;
-  --nds-color-primary-100: #ede9fe;
-  --nds-color-primary-200: #ddd6fe;
-  --nds-color-primary-300: #c4b5fd;
-  --nds-color-primary-400: #a78bfa;
-  --nds-color-primary-500: #8b5cf6;
-  --nds-color-primary-600: #7c5cff;
-  --nds-color-primary-700: #6d28d9;
-  --nds-color-primary-800: #5b21b6;
-  --nds-color-primary-900: #4c1d95;
+.nds-input:hover:not([data-disabled='true']) .nds-input__wrapper {
+  background: var(--nds-color-surface-hover);
 
-  /* ------------------------------------------------------------------------
-   * Cyan
-   * --------------------------------------------------------------------- */
+  border-color: rgba(255, 255, 255, .14);
+}
 
-  --nds-color-cyan-50:  #ecfeff;
-  --nds-color-cyan-100: #cffafe;
-  --nds-color-cyan-200: #a5f3fc;
-  --nds-color-cyan-300: #67e8f9;
-  --nds-color-cyan-400: #22d3ee;
-  --nds-color-cyan-500: #06b6d4;
-  --nds-color-cyan-600: #4fd9ff;
-  --nds-color-cyan-700: #0e7490;
-  --nds-color-cyan-800: #155e75;
-  --nds-color-cyan-900: #164e63;
+/* ==========================================================================
+   Focus
+   ========================================================================== */
 
-  /* ------------------------------------------------------------------------
-   * Neutral
-   * --------------------------------------------------------------------- */
+.nds-input:focus-within .nds-input__wrapper {
+  border-color: var(--nds-color-primary-600);
 
-  --nds-color-neutral-0:   #ffffff;
-  --nds-color-neutral-50:  #f8fafc;
-  --nds-color-neutral-100: #f1f5f9;
-  --nds-color-neutral-200: #e2e8f0;
-  --nds-color-neutral-300: #cbd5e1;
-  --nds-color-neutral-400: #94a3b8;
-  --nds-color-neutral-500: #64748b;
-  --nds-color-neutral-600: #475569;
-  --nds-color-neutral-700: #334155;
-  --nds-color-neutral-800: #1e293b;
-  --nds-color-neutral-900: #0f172a;
-  --nds-color-neutral-950: #020617;
+  box-shadow:
+    0 0 0 3px rgba(124, 92, 255, .16);
+}
 
-  /* ------------------------------------------------------------------------
-   * Semantic
-   * --------------------------------------------------------------------- */
+/* ==========================================================================
+   Native input
+   ========================================================================== */
 
-  --nds-color-success: #22c55e;
-  --nds-color-warning: #f59e0b;
-  --nds-color-danger:  #ef4444;
-  --nds-color-info:    #3b82f6;
+.nds-input__native {
+  flex: 1;
 
-    --nds-surface-glass-bg:
+  min-width: 0;
+  width: 100%;
 
-  rgba(15,18,34,.55);
+  padding: 0;
 
-    --nds-surface-solid-bg:
+  border: 0;
+  outline: 0;
 
-  #121826;
+  background: transparent;
 
-    --nds-surface-border:
+  color: var(--nds-color-text);
 
-  rgba(255,255,255,.08);
+  font-family: var(--nds-font-family);
+  font-size: var(--nds-font-size-body-md);
+  font-weight: var(--nds-font-weight-regular);
+  line-height: var(--nds-line-height-body-md);
+  letter-spacing: var(--nds-letter-spacing-body-md);
 
+  &::placeholder {
+    color: var(--nds-color-text-subtle);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Prefix / Suffix
+   ========================================================================== */
+
+.nds-input__prefix,
+.nds-input__suffix {
+  display: inline-flex;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  color: var(--nds-color-text-muted);
+}
+
+/* ==========================================================================
+   Password toggle
+   ========================================================================== */
+
+.nds-input__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: var(--nds-radius-sm);
+
+  background: transparent;
+
+  color: var(--nds-color-text-muted);
+
+  cursor: pointer;
+
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+
+  &:hover {
+    background: var(--nds-color-surface-hover);
+    color: var(--nds-color-text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--nds-color-primary-600);
+    outline-offset: 2px;
+  }
+}
+
+/* ==========================================================================
+   Disabled
+   ========================================================================== */
+
+.nds-input[data-disabled='true'] {
+  opacity: .55;
+
+  .nds-input__wrapper {
+    cursor: not-allowed;
+  }
+
+  .nds-input__native {
+    cursor: not-allowed;
+  }
+}
+
+/* ==========================================================================
+   Readonly
+   ========================================================================== */
+
+.nds-input[data-readonly='true'] .nds-input__wrapper {
+  background: var(--nds-color-background);
+}
+
+/* ==========================================================================
+   Required
+   ========================================================================== */
+
+.nds-input[data-required='true'] {
+  /* State reserved for future required-specific styling */
+}
+
+/* ==========================================================================
+   Invalid
+   ========================================================================== */
+
+.nds-input[data-invalid='true'] .nds-input__wrapper {
+  border-color: var(--nds-color-danger);
+}
+
+.nds-input[data-invalid='true'] .nds-input__wrapper:focus-within {
+  border-color: var(--nds-color-danger);
+
+  box-shadow:
+    0 0 0 3px rgba(239, 68, 68, .16);
+}
+
+/* ==========================================================================
+   Prefix / suffix spacing
+   ========================================================================== */
+
+.nds-input[data-prefix='true'] .nds-input__wrapper {
+  padding-left: 0;
+}
+
+.nds-input[data-suffix='true'] .nds-input__wrapper {
+  padding-right: 0;
 }

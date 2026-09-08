@@ -1,0 +1,456 @@
+<section class="nova-test">
+
+  <div class="nova-test__section">
+
+    <nds-heading
+      level="h1"
+      size="lg">
+      Nova Design System
+    </nds-heading>
+
+    <nds-text
+      variant="body"
+      size="lg">
+      A collection of reusable Angular components.
+    </nds-text>
+
+  </div>
+
+
+  <div class="nova-test__section">
+
+    <nds-heading
+      level="h2"
+      size="md">
+      Typography
+    </nds-heading>
+
+    <div class="nova-test__stack">
+
+      <nds-heading
+        level="h3"
+        size="sm">
+        Heading Small
+      </nds-heading>
+
+      <nds-text
+        variant="body"
+        size="lg">
+        Large body text — Front-end developer passionate about
+        modern technologies and beautiful digital experiences.
+      </nds-text>
+
+      <nds-text
+        variant="body"
+        size="md">
+        Medium body text — This is the default body text.
+      </nds-text>
+
+      <nds-text
+        variant="body"
+        size="sm">
+        Small body text — Useful for secondary information.
+      </nds-text>
+
+      <nds-text
+        variant="caption">
+        Caption — Last updated today.
+      </nds-text>
+
+    </div>
+
+  </div>
+
+
+  <div class="nova-test__section">
+
+      <nds-heading
+        level="h2"
+        size="md">
+        Forms & Actions
+      </nds-heading>
+
+      <div class="nova-test__stack">
+
+        <nds-button>
+          Nova Button
+        </nds-button>
+
+        <nds-field>
+
+          <nds-label>
+            Email address
+          </nds-label>
+
+          <nds-input
+            type="email"
+            placeholder="you@example.com">
+          </nds-input>
+
+        </nds-field>
+
+        <nds-input
+          placeholder="Your name">
+        </nds-input>
+
+        <nds-textarea
+          placeholder="Your message">
+        </nds-textarea>
+
+      </div>
+
+      <nds-heading
+    level="h2"
+    size="md">
+    Input states
+  </nds-heading>
+
+  <nds-field>
+
+    <nds-label>
+      Default
+    </nds-label>
+
+    <nds-input
+      type="text"
+      placeholder="Enter your name">
+    </nds-input>
+
+  </nds-field>
+
+  <nds-field>
+
+    <nds-label>
+      Email
+    </nds-label>
+
+    <nds-input
+      type="email"
+      placeholder="you@example.com">
+    </nds-input>
+
+  </nds-field>
+
+  <nds-field>
+
+    <nds-label>
+      Disabled
+    </nds-label>
+
+    <nds-input
+      placeholder="This input is disabled"
+      [disabled]="true">
+    </nds-input>
+
+  </nds-field>
+
+  <nds-field>
+
+    <nds-label>
+      Readonly
+    </nds-label>
+
+    <nds-input
+      value="Readonly value"
+      [readonly]="true">
+    </nds-input>
+
+  </nds-field>
+
+  <nds-field>
+
+    <nds-label>
+      Disabled
+    </nds-label>
+
+    <nds-input
+      placeholder="This input is disabled"
+      [disabled]="true">
+    </nds-input>
+
+  </nds-field>
+
+  <nds-field>
+
+    <nds-label>
+      Readonly
+    </nds-label>
+
+    <nds-input
+      value="Readonly value"
+      [readonly]="true">
+    </nds-input>
+
+  </nds-field>
+
+  <nds-field>
+
+    <nds-label>
+      Default
+    </nds-label>
+
+    <nds-input
+      placeholder="Enter your name">
+    </nds-input>
+
+  </nds-field>
+
+  <nds-field
+  [required]="true">
+
+    <nds-label
+      [required]="true">
+      Required
+    </nds-label>
+
+    <nds-input
+      placeholder="This field is required">
+    </nds-input>
+
+  </nds-field>
+
+  <nds-field
+  [disabled]="true">
+
+    <nds-label>
+      Disabled
+    </nds-label>
+
+    <nds-input
+      placeholder="This field is disabled">
+    </nds-input>
+
+  </nds-field>
+
+  <nds-field
+  [invalid]="true">
+
+    <nds-label
+      [required]="true">
+      Email address
+    </nds-label>
+
+    <nds-input
+      type="email"
+      placeholder="you@example.com">
+    </nds-input>
+
+  </nds-field>
+
+  <nds-field>
+
+    <nds-label>
+      Username
+    </nds-label>
+
+    <nds-input
+      placeholder="Enter your username">
+    </nds-input>
+
+    <nds-helper-text>
+      Your username must be unique.
+    </nds-helper-text>
+
+  </nds-field>
+
+  <nds-field [invalid]="true">
+
+    <nds-label [required]="true">
+      Email address
+    </nds-label>
+
+    <nds-input
+      type="email"
+      placeholder="you@example.com">
+    </nds-input>
+
+    <nds-error-text>
+      Please enter a valid email address.
+    </nds-error-text>
+
+  </nds-field>
+
+  <nds-heading
+  level="h2"
+  size="md">
+  Input sizes
+</nds-heading>
+
+  <nds-field>
+
+    <nds-label>
+      Small
+    </nds-label>
+
+    <nds-input
+      size="sm"
+      placeholder="Small input">
+    </nds-input>
+
+  </nds-field>
+
+  <nds-field>
+
+    <nds-label>
+      Medium
+    </nds-label>
+
+    <nds-input
+      size="md"
+      placeholder="Medium input">
+    </nds-input>
+
+  </nds-field>
+
+  <nds-field>
+
+    <nds-label>
+      Large
+    </nds-label>
+
+    <nds-input
+      size="lg"
+      placeholder="Large input">
+    </nds-input>
+
+  </nds-field>
+
+    <nds-heading
+    level="h2"
+    size="md">
+      Input variants
+    </nds-heading>
+
+    <nds-field>
+
+      <nds-label>
+        Outlined
+      </nds-label>
+
+      <nds-input
+        variant="outlined"
+        placeholder="Outlined input">
+      </nds-input>
+
+    </nds-field>
+
+    <nds-field>
+
+      <nds-label>
+        Filled
+      </nds-label>
+
+      <nds-input
+        variant="filled"
+        placeholder="Filled input">
+      </nds-input>
+
+    </nds-field>
+
+    <nds-heading
+      level="h2"
+      size="md">
+      Input variants
+    </nds-heading>
+
+    <div class="nova-test-row">
+
+      <nds-input
+        variant="outlined"
+        placeholder="Outlined">
+      </nds-input>
+
+      <nds-input
+        variant="filled"
+        placeholder="Filled">
+      </nds-input>
+
+    </div>
+
+    <nds-field>
+
+      <nds-label>
+        Password
+      </nds-label>
+
+      <nds-input
+        type="password"
+        placeholder="Enter your password">
+      </nds-input>
+
+    </nds-field>
+
+  <nds-field>
+
+    <nds-label>
+      Password
+    </nds-label>
+
+    <nds-input
+      size="lg"
+      variant="filled"
+      type="password"
+      placeholder="Enter your password">
+    </nds-input>
+
+  </nds-field>
+
+    <nds-input placeholder="example.com">
+
+      <span ndsPrefix>
+        https://
+      </span>
+
+      <span ndsSuffix>
+        .com
+      </span>
+
+    </nds-input>
+
+  </div>
+
+  <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+    <nds-button variant="filled" color="primary">
+      Primary
+    </nds-button>
+
+    <nds-button variant="filled" color="secondary">
+      Secondary
+    </nds-button>
+
+    <nds-button variant="outlined" color="primary">
+      Outline
+    </nds-button>
+
+    <nds-button variant="ghost" color="primary">
+      Ghost
+    </nds-button>
+
+    <nds-button variant="filled" color="danger">
+      Danger
+    </nds-button>
+  </div>
+
+  <br />
+
+  <div style="display: flex; gap: 16px; align-items: center;">
+    <nds-button size="sm">Small</nds-button>
+    <nds-button size="md">Medium</nds-button>
+    <nds-button size="lg">Large</nds-button>
+  </div>
+
+  <br />
+
+  <div style="display: flex; gap: 16px;">
+    <nds-button disabled>
+      Disabled
+    </nds-button>
+
+    <nds-button loading>
+      Loading
+    </nds-button>
+  </div>
+
+</section>
+
+
