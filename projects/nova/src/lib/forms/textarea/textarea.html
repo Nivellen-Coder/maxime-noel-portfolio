@@ -1,0 +1,46 @@
+<div class="nds-textarea__wrapper">
+
+    <div class="nds-textarea__prefix">
+
+        <ng-content
+            select="[ndsPrefix]" />
+
+    </div>
+
+    <textarea
+
+        class="nds-textarea__native"
+
+        ndsFieldControl
+
+        [id]="controlId()"
+
+        [rows]="rows()"
+
+        [value]="value()"
+
+        [placeholder]="placeholder()"
+
+        [disabled]="isDisabled()"
+
+        [readOnly]="readonly()"
+
+        [required]="isRequired()"
+
+        [attr.aria-labelledby]="labelId()"
+
+        [attr.aria-describedby]="describedBy()"
+
+        [attr.aria-invalid]="invalid() ? 'true' : null"
+
+        (input)="onInput($event)">
+    </textarea>
+
+    <div class="nds-textarea__suffix">
+
+        <ng-content
+            select="[ndsSuffix]" />
+
+    </div>
+
+</div>

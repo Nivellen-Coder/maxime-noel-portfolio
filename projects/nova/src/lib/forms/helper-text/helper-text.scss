@@ -1,0 +1,13 @@
+.nds-helper-text {
+  display: block;
+
+  color: var(--nds-color-text-muted);
+
+  font-family: var(--nds-font-family);
+  font-size: var(--nds-font-size-body-sm);
+  line-height: var(--nds-line-height-body-sm);
+}
+
+.nds-helper-text__content {
+  display: block;
+}

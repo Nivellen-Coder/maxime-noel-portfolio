@@ -1,0 +1,392 @@
+@use '../../core/styles/mixins' as mixins;
+
+.nds-input {
+  display: block;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Wrapper
+   ========================================================================== */
+.nds-input:hover:not([data-disabled='true']) .nds-input__wrapper {
+  border-color: var(--nds-color-primary-600);
+  background: var(--nds-color-surface-hover);
+}
+
+.nds-input__wrapper {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 2.75rem;
+
+  gap: .5rem;
+
+  padding-inline: .75rem;
+  border: 1px solid transparent;
+  border-radius: var(--nds-radius-md);
+
+  background: var(--nds-color-surface);
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+
+  @include mixins.focus-ring(".nds-input__native");
+}
+
+/* ==========================================================================
+   Native input
+   ========================================================================== */
+
+.nds-input__native {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+
+  padding: 0;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: var(--nds-color-text-primary);
+
+  font-family: var(--nds-font-family);
+  font-size: var(--nds-font-size-body-md);
+  line-height: var(--nds-line-height-body-md);
+
+  &::placeholder {
+    color: var(--nds-color-text-secondary);
+  }
+}
+
+/* ==========================================================================
+   Prefix / suffix
+   ========================================================================== */
+
+.nds-input__prefix,
+.nds-input__suffix {
+  display: inline-flex;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Password toggle
+   ========================================================================== */
+
+.nds-input__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: var(--nds-radius-sm);
+
+  background: transparent;
+  color: var(--nds-color-text-muted);
+
+  cursor: pointer;
+
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+.nds-input__toggle:hover {
+  background: var(--nds-color-surface-hover);
+  color: var(--nds-color-text);
+}
+
+.nds-input__toggle:focus-visible {
+  outline: 2px solid var(--nds-color-primary-600);
+  outline-offset: 2px;
+}
+
+.nds-input__toggle:disabled {
+  cursor: not-allowed;
+  opacity: .5;
+}
+
+.nds-input__toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.nds-input__wrapper:focus-within {
+  border-color: var(--nds-color-primary-600);
+  background: var(--nds-color-surface);
+
+  box-shadow:
+    0 0 0 3px
+    color-mix(
+      in srgb,
+      var(--nds-color-primary-600) 20%,
+      transparent
+    );
+}
+
+/* ==========================================================================
+   Prefix / suffix layout
+   ========================================================================== */
+
+.nds-input[data-prefix="true"] .nds-input__wrapper {
+  padding-left: 0;
+}
+
+.nds-input[data-suffix="true"] .nds-input__wrapper {
+  padding-right: 0;
+}
+
+.nds-input[data-disabled='true'] {
+  opacity: .55;
+
+  .nds-input__wrapper {
+    cursor: not-allowed;
+    background: var(--nds-color-background);
+    border-color: var(--nds-surface-border);
+  }
+
+  .nds-input__native {
+    cursor: not-allowed;
+    color: var(--nds-color-text-muted);
+
+    &::placeholder {
+      color: var(--nds-color-text-subtle);
+    }
+  }
+}
+
+.nds-input[data-readonly='true'] .nds-input__wrapper {
+  background: var(--nds-color-background);
+}
+
+.nds-input[data-readonly='true'] .nds-input__native {
+  cursor: default;
+}
+
+/* ==========================================================================
+   Sizes
+   ========================================================================== */
+
+.nds-input[data-size='sm'] {
+
+  .nds-input__toggle {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.nds-input[data-size='md'] {
+
+  .nds-input__toggle {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.nds-input[data-size='lg'] {
+
+  .nds-input__toggle {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+  .nds-input__native {
+    font-size: var(--nds-font-size-body-lg);
+    line-height: var(--nds-line-height-body-lg);
+  }
+
+  .nds-input__toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+/* ==========================================================================
+   Variants
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Outlined
+   -------------------------------------------------------------------------- */
+
+.nds-input[data-variant='outlined'] {
+
+  .nds-input__wrapper {
+    background: var(--nds-color-surface);
+    border: 1px solid var(--nds-surface-border);
+  }
+
+  &:hover:not([data-disabled='true']) {
+
+    .nds-input__wrapper {
+      background: var(--nds-color-surface-hover);
+      border-color: var(--nds-color-primary-600);
+    }
+  }
+
+  .nds-input__wrapper:focus-within {
+    background: var(--nds-color-surface);
+    border-color: var(--nds-color-primary-600);
+
+    box-shadow:
+      0 0 0 3px
+      color-mix(
+        in srgb,
+        var(--nds-color-primary-600) 20%,
+        transparent
+      );
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Filled
+   -------------------------------------------------------------------------- */
+
+.nds-input[data-variant='filled'] {
+
+  .nds-input__wrapper {
+    background: var(--nds-color-background);
+    border: 1px solid transparent;
+  }
+
+  &:hover:not([data-disabled='true']) {
+
+    .nds-input__wrapper {
+      background: var(--nds-color-surface-hover);
+      border-color: transparent;
+    }
+  }
+
+  .nds-input__wrapper:focus-within {
+    background: var(--nds-color-background);
+    border-color: var(--nds-color-primary-600);
+
+    box-shadow:
+      0 0 0 3px
+      color-mix(
+        in srgb,
+        var(--nds-color-primary-600) 20%,
+        transparent
+      );
+  }
+}
+
+/* ==========================================================================
+   Invalid
+   ========================================================================== */
+
+.nds-input[data-invalid='true'] {
+
+  .nds-input__wrapper {
+    border-color: var(--nds-color-danger);
+  }
+
+  .nds-input__wrapper:focus-within {
+    border-color: var(--nds-color-danger);
+
+    box-shadow:
+      0 0 0 3px
+      color-mix(
+        in srgb,
+        var(--nds-color-danger) 20%,
+        transparent
+      );
+  }
+}
+
+/* ==========================================================================
+   Prefix / Suffix
+   ========================================================================== */
+
+.nds-input__prefix,
+.nds-input__suffix {
+  display: inline-flex;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  color: var(--nds-color-text-muted);
+
+  font-size: var(--nds-font-size-body-md);
+  line-height: 1;
+}
+
+.nds-input[data-prefix='true'] .nds-input__wrapper {
+  padding-left: 0;
+}
+
+.nds-input[data-suffix='true'] .nds-input__wrapper {
+  padding-right: 0;
+}
+
+.nds-input[data-prefix='true'] .nds-input__prefix {
+  padding-left: 14px;
+}
+
+.nds-input[data-suffix='true'] .nds-input__suffix {
+  padding-right: 14px;
+}
+
+.nds-input__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: var(--nds-radius-sm);
+
+  background: transparent;
+
+  color: var(--nds-color-text-muted);
+
+  cursor: pointer;
+
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+.nds-input__toggle:hover {
+  background: var(--nds-color-surface-hover);
+  color: var(--nds-color-text);
+}
+
+.nds-input__toggle:focus-visible {
+  outline: 2px solid var(--nds-color-primary-600);
+  outline-offset: 2px;
+}
+
+.nds-input__prefix,
+.nds-input__suffix {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+
+  white-space: nowrap;
+}
+
+.nds-input__prefix:empty,
+.nds-input__suffix:empty {
+  display: none;
+}

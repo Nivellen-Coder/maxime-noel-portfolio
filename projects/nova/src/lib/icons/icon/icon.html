@@ -1,0 +1,14 @@
+<svg
+  class="nds-icon__svg"
+  [attr.viewBox]="icon().viewBox"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  aria-hidden="true"
+>
+  @for (path of icon().paths; track path) {
+    <path [attr.d]="path" />
+  }
+</svg>

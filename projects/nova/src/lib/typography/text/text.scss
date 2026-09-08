@@ -1,0 +1,85 @@
+.nds-text {
+  display: block;
+  max-width: 100%;
+}
+
+.nds-text__content {
+  display: inline;
+  margin: 0;
+
+  font-family: var(--nds-font-family);
+  font-weight: var(--nds-font-weight-regular);
+}
+
+/* --------------------------------------------------------------------------
+ * Body
+ * -------------------------------------------------------------------------- */
+
+.nds-text[data-variant='body'][data-size='lg'] .nds-text__content {
+  font-size: var(--nds-font-size-body-lg);
+  line-height: var(--nds-line-height-body-lg);
+  letter-spacing: var(--nds-letter-spacing-body-lg);
+}
+
+.nds-text[data-variant='body'][data-size='md'] .nds-text__content {
+  font-size: var(--nds-font-size-body-md);
+  line-height: var(--nds-line-height-body-md);
+  letter-spacing: var(--nds-letter-spacing-body-md);
+}
+
+.nds-text[data-variant='body'][data-size='sm'] .nds-text__content {
+  font-size: var(--nds-font-size-body-sm);
+  line-height: var(--nds-line-height-body-sm);
+  letter-spacing: var(--nds-letter-spacing-body-sm);
+}
+
+/* --------------------------------------------------------------------------
+ * Label
+ * -------------------------------------------------------------------------- */
+
+.nds-text[data-variant='label'][data-size='lg'] .nds-text__content {
+  font-size: var(--nds-font-size-label-lg);
+  line-height: var(--nds-line-height-label-lg);
+  letter-spacing: var(--nds-letter-spacing-label-lg);
+  font-weight: var(--nds-font-weight-medium);
+}
+
+.nds-text[data-variant='label'][data-size='md'] .nds-text__content {
+  font-size: var(--nds-font-size-label-md);
+  line-height: var(--nds-line-height-label-md);
+  letter-spacing: var(--nds-letter-spacing-label-md);
+  font-weight: var(--nds-font-weight-medium);
+}
+
+.nds-text[data-variant='label'][data-size='sm'] .nds-text__content {
+  font-size: var(--nds-font-size-label-sm);
+  line-height: var(--nds-line-height-label-sm);
+  letter-spacing: var(--nds-letter-spacing-label-sm);
+  font-weight: var(--nds-font-weight-medium);
+}
+
+/* --------------------------------------------------------------------------
+ * Caption
+ * -------------------------------------------------------------------------- */
+
+.nds-text[data-variant='caption'] .nds-text__content {
+  font-size: var(--nds-font-size-caption);
+  line-height: var(--nds-line-height-caption);
+  letter-spacing: var(--nds-letter-spacing-caption);
+}
+
+/* --------------------------------------------------------------------------
+ * Alignment
+ * -------------------------------------------------------------------------- */
+
+.nds-text[data-align='left'] .nds-text__content {
+  text-align: left;
+}
+
+.nds-text[data-align='center'] .nds-text__content {
+  text-align: center;
+}
+
+.nds-text[data-align='right'] .nds-text__content {
+  text-align: right;
+}

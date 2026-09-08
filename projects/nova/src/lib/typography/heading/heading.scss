@@ -1,0 +1,53 @@
+.nds-heading {
+  display: block;
+  width: 100%;
+}
+
+.nds-heading__content {
+  margin: 0;
+
+  font-family: var(--nds-font-family);
+  font-weight: var(--nds-font-weight-bold);
+
+  color: var(--nds-color-text-primary);
+
+  text-wrap: balance;
+}
+
+/* --------------------------------------------------------------------------
+ * Sizes
+ * -------------------------------------------------------------------------- */
+
+.nds-heading[data-size='sm'] .nds-heading__content {
+  font-size: var(--nds-font-size-heading-sm);
+  line-height: var(--nds-line-height-heading-sm);
+  letter-spacing: var(--nds-letter-spacing-heading-sm);
+}
+
+.nds-heading[data-size='md'] .nds-heading__content {
+  font-size: var(--nds-font-size-heading-md);
+  line-height: var(--nds-line-height-heading-md);
+  letter-spacing: var(--nds-letter-spacing-heading-md);
+}
+
+.nds-heading[data-size='lg'] .nds-heading__content {
+  font-size: var(--nds-font-size-heading-lg);
+  line-height: var(--nds-line-height-heading-lg);
+  letter-spacing: var(--nds-letter-spacing-heading-lg);
+}
+
+/* --------------------------------------------------------------------------
+ * Alignment
+ * -------------------------------------------------------------------------- */
+
+.nds-heading[data-align='left'] .nds-heading__content {
+  text-align: left;
+}
+
+.nds-heading[data-align='center'] .nds-heading__content {
+  text-align: center;
+}
+
+.nds-heading[data-align='right'] .nds-heading__content {
+  text-align: right;
+}

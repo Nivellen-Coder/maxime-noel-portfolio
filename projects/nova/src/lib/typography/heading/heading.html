@@ -1,0 +1,8 @@
+@switch (level()) {
+  @case ('h1') { <h1 class="nds-heading__content"><ng-content /></h1> }
+  @case ('h2') { <h2 class="nds-heading__content"><ng-content /></h2> }
+  @case ('h3') { <h3 class="nds-heading__content"><ng-content /></h3> }
+  @case ('h4') { <h4 class="nds-heading__content"><ng-content /></h4> }
+  @case ('h5') { <h5 class="nds-heading__content"><ng-content /></h5> }
+  @default { <h6 class="nds-heading__content"><ng-content /></h6> }
+}

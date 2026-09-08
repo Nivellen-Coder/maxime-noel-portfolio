@@ -1,0 +1,39 @@
+nds-icon {
+  display: inline-flex;
+
+  width: 1em;
+  height: 1em;
+
+  color: inherit;
+
+  flex-shrink: 0;
+}
+
+.nds-icon__svg {
+
+  width: 100%;
+  height: 100%;
+
+}
+
+/* Sizes */
+
+nds-icon[data-size="xs"] {
+  font-size: .75rem;
+}
+
+nds-icon[data-size="sm"] {
+  font-size: .875rem;
+}
+
+nds-icon[data-size="md"] {
+  font-size: 1rem;
+}
+
+nds-icon[data-size="lg"] {
+  font-size: 1.25rem;
+}
+
+nds-icon[data-size="xl"] {
+  font-size: 1.5rem;
+}

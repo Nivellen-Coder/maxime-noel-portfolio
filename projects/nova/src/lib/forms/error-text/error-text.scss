@@ -1,0 +1,35 @@
+.nds-error-text {
+  display: block;
+
+  color: var(--nds-color-danger);
+
+  font-family: var(--nds-font-family);
+  font-size: var(--nds-font-size-body-sm);
+  line-height: var(--nds-line-height-body-sm);
+}
+
+.nds-error-text__content {
+  display: inline-flex;
+  align-items: center;
+
+  gap: var(--nds-space-2);
+}
+
+.nds-error-text__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 16px;
+
+  flex-shrink: 0;
+
+  font-size: 11px;
+  font-weight: var(--nds-font-weight-bold);
+
+  border-radius: var(--nds-radius-full);
+
+  background: var(--nds-color-danger);
+  color: var(--nds-color-background);
+}

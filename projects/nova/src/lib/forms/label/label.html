@@ -1,0 +1,13 @@
+<label class="nds-label__content">
+
+  <ng-content />
+
+  @if (isRequired()) {
+    <span
+      class="nds-label__required"
+      aria-hidden="true">
+      *
+    </span>
+  }
+
+</label>

@@ -1,5 +1,32 @@
 # Nova
 
+Nova est la bibliothèque de composants Angular standalone du portfolio. Son API publique est disponible via `@nova/ui`.
+
+## Composants disponibles
+
+- Actions : `Button`
+- Feedback : `Spinner`
+- Formulaires : `Field`, `Label`, `Input`, `Textarea`, `HelperText`, `ErrorText`
+- Typographie : `Heading`, `Text`
+- Utilitaires : `PrefixDirective`, `SuffixDirective`, `Icon` (`search`, `check`, `download`)
+
+## Exemple rapide
+
+```ts
+import { Button, Field, Input, Label } from '@nova/ui';
+```
+
+```html
+<nds-field required>
+  <nds-label>Votre adresse e-mail</nds-label>
+  <nds-input type="email" placeholder="vous@exemple.com" />
+</nds-field>
+
+<nds-button type="submit" [loading]="isSaving()">Envoyer</nds-button>
+```
+
+Un `Field` relie automatiquement son label, son aide et son erreur au contrôle natif. `Input` et `Textarea` prennent en charge le two-way binding avec `[(value)]`.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
 
 ## Code scaffolding
