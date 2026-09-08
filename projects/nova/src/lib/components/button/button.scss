@@ -1,0 +1,252 @@
+/**
+ * -----------------------------------------------------------------------------
+ * Nova Design System
+ * Button
+ * -----------------------------------------------------------------------------
+ */
+
+.nds-button {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Native button                                                              */
+/* -------------------------------------------------------------------------- */
+
+.nds-button__native {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+  border: 1px solid transparent;
+
+  font-family: var(--nds-font-family);
+  font-weight: var(--nds-font-weight-semibold);
+  line-height: 1;
+
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 80ms ease,
+    opacity 160ms ease;
+
+  &:focus-visible {
+    outline: 2px solid var(--nds-color-primary-600);
+    outline-offset: 2px;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Content                                                                    */
+/* -------------------------------------------------------------------------- */
+
+.nds-button__content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Spinner                                                                    */
+/* -------------------------------------------------------------------------- */
+
+.nds-button__spinner {
+  position: absolute;
+  inset: 50% auto auto 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.nds-button[data-loading='true'] {
+  .nds-button__content {
+    visibility: hidden;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Sizes                                                                      */
+/* -------------------------------------------------------------------------- */
+
+.nds-button[data-size='sm'] {
+  .nds-button__native {
+    min-height: 36px;
+    padding: 0 12px;
+
+    border-radius: var(--nds-radius-sm);
+
+    font-size: var(--nds-font-size-label-md);
+  }
+}
+
+.nds-button[data-size='md'] {
+  .nds-button__native {
+    min-height: 44px;
+    padding: 0 16px;
+
+    border-radius: var(--nds-radius-md);
+
+    font-size: var(--nds-font-size-label-lg);
+  }
+}
+
+.nds-button[data-size='lg'] {
+  .nds-button__native {
+    min-height: 52px;
+    padding: 0 20px;
+
+    border-radius: var(--nds-radius-lg);
+
+    font-size: var(--nds-font-size-body-lg);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Primary                                                                    */
+/* -------------------------------------------------------------------------- */
+
+.nds-button[data-variant='primary'] {
+  .nds-button__native {
+    background-color: var(--nds-color-primary-600);
+    border-color: var(--nds-color-primary-600);
+    color: var(--nds-color-text-on-primary);
+
+    &:hover:not(:disabled) {
+      background-color: var(--nds-color-primary-700);
+      border-color: var(--nds-color-primary-700);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--nds-color-primary-800);
+      border-color: var(--nds-color-primary-800);
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Secondary                                                                  */
+/* -------------------------------------------------------------------------- */
+
+.nds-button[data-variant='secondary'] {
+  .nds-button__native {
+    background-color: var(--nds-color-secondary-600);
+    border-color: var(--nds-color-secondary-600);
+    color: var(--nds-color-text-on-secondary);
+
+    &:hover:not(:disabled) {
+      background-color: var(--nds-color-secondary-700);
+      border-color: var(--nds-color-secondary-700);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--nds-color-secondary-800);
+      border-color: var(--nds-color-secondary-800);
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Outline                                                                    */
+/* -------------------------------------------------------------------------- */
+
+.nds-button[data-variant='outline'] {
+  .nds-button__native {
+    background-color: transparent;
+    border-color: var(--nds-color-border-strong);
+    color: var(--nds-color-text-primary);
+
+    &:hover:not(:disabled) {
+      background-color: var(--nds-color-surface-secondary);
+      border-color: var(--nds-color-primary-600);
+      color: var(--nds-color-primary-600);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--nds-color-surface-tertiary);
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Ghost                                                                      */
+/* -------------------------------------------------------------------------- */
+
+.nds-button[data-variant='ghost'] {
+  .nds-button__native {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--nds-color-text-primary);
+
+    &:hover:not(:disabled) {
+      background-color: var(--nds-color-surface-secondary);
+      color: var(--nds-color-primary-600);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--nds-color-surface-tertiary);
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Danger                                                                     */
+/* -------------------------------------------------------------------------- */
+
+.nds-button[data-variant='danger'] {
+  .nds-button__native {
+    background-color: var(--nds-color-error-600);
+    border-color: var(--nds-color-error-600);
+    color: var(--nds-color-text-on-error);
+
+    &:hover:not(:disabled) {
+      background-color: var(--nds-color-error-700);
+      border-color: var(--nds-color-error-700);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--nds-color-error-800);
+      border-color: var(--nds-color-error-800);
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Disabled                                                                   */
+/* -------------------------------------------------------------------------- */
+
+.nds-button[data-disabled='true'],
+.nds-button[data-loading='true'] {
+  .nds-button__native {
+    opacity: 0.5;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reduced motion                                                             */
+/* -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .nds-button__native {
+    transition: none;
+  }
+}

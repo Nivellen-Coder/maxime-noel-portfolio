@@ -1,0 +1,18 @@
+<button
+  class="nds-button__native"
+  [attr.type]="type()"
+  [disabled]="disabled() || loading()"
+  [attr.aria-busy]="loading()"
+>
+  @if (loading()) {
+    <nds-spinner
+      class="nds-button__spinner"
+      size="sm"
+      variant="inherit"
+    />
+  }
+
+  <span class="nds-button__content">
+    <ng-content />
+  </span>
+</button>
