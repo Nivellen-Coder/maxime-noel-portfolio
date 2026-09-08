@@ -1,1 +1,236 @@
-.navbar{max-width:1500px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;background:#040914;color:#e8edff;border-bottom:1px solid #142846}.brand{display:flex;align-items:center;gap:13px}.brand b{font:700 2rem/1 'Space Grotesk',sans-serif}.brand span{font-size:.78rem;letter-spacing:.08em}.brand small{display:block;font-size:.45rem;letter-spacing:.16em;color:#9a9bc2;margin-top:3px}.navbar nav{display:flex;gap:31px}.navbar nav a{font-size:.62rem;text-transform:uppercase}.navbar nav .active{color:#c4b5ff;border-bottom:2px solid #7650ff;padding-bottom:12px}.navbar__actions{display:flex;gap:13px;align-items:center}.navbar__actions button{color:white;border:1px solid #2b3a61;border-radius:50%;width:34px;height:34px}.navbar__actions a{padding:11px 17px;border:1px solid #7650ff;border-radius:5px;font-size:.61rem;text-transform:uppercase}@media(max-width:800px){.navbar nav{display:none}.navbar{padding:10px 14px}}
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: min(1500px, calc(100% - 40px));
+  min-height: 64px;
+  margin: 0 auto;
+
+  padding: 8px 16px;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  background: rgba(3, 7, 17, 0.72);
+
+  transition:
+    background 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease,
+    backdrop-filter 300ms ease;
+}
+
+.navbar--scrolled {
+  border-color: rgba(23, 49, 81, 0.9);
+
+  background: rgba(3, 7, 17, 0.84);
+
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.22),
+    0 0 25px rgba(118, 80, 255, 0.04);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #edf1ff;
+  text-decoration: none;
+}
+
+.brand b {
+  display: grid;
+  place-items: center;
+
+  width: 35px;
+  height: 35px;
+
+  border: 1px solid #7650ff;
+  border-radius: 5px;
+
+  color: #fff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #5433e8,
+      #8a57ff
+    );
+
+  box-shadow:
+    0 0 20px rgba(118, 80, 255, 0.18);
+}
+
+.brand span {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.brand small {
+  margin-top: 2px;
+
+  color: #7f8eaa;
+  font-size: 0.48rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navbar nav a {
+  position: relative;
+
+  padding: 8px 10px;
+
+  color: #9ca9c6;
+  text-decoration: none;
+
+  font-size: 0.63rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+
+  transition:
+    color 200ms ease,
+    background 200ms ease;
+}
+
+.navbar nav a::after {
+  content: '';
+
+  position: absolute;
+  right: 10px;
+  bottom: 3px;
+  left: 10px;
+
+  height: 1px;
+
+  background: #7650ff;
+
+  transform: scaleX(0);
+  transform-origin: center;
+
+  transition: transform 250ms ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+  color: #f0edff;
+}
+
+.navbar nav a:hover::after,
+.navbar nav a.active::after {
+  transform: scaleX(1);
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__actions button {
+  display: grid;
+  place-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  border: 1px solid #173151;
+  border-radius: 5px;
+
+  color: #c6bbff;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition:
+    border-color 200ms ease,
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.navbar__actions button:hover {
+  border-color: #7650ff;
+
+  background: rgba(118, 80, 255, 0.08);
+
+  transform: translateY(-1px);
+}
+
+.navbar__actions > a {
+  padding: 9px 13px;
+
+  border: 1px solid #7650ff;
+  border-radius: 5px;
+
+  color: #f2efff;
+  text-decoration: none;
+
+  font-size: 0.61rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  background: rgba(118, 80, 255, 0.08);
+
+  transition:
+    background 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+.navbar__actions > a:hover {
+  background: rgba(118, 80, 255, 0.18);
+
+  box-shadow:
+    0 0 20px rgba(118, 80, 255, 0.12);
+
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1000px) {
+  .navbar {
+    width: calc(100% - 24px);
+  }
+
+  .navbar nav {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .navbar {
+    width: calc(100% - 16px);
+    min-height: 58px;
+
+    padding: 7px 10px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .navbar__actions > a {
+    display: none;
+  }
+}
